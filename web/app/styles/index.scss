@@ -1,0 +1,19 @@
+@use "variables";
+
+@use "mixins";
+@use "utils";
+
+@use "typography";
+
+@use "layout";
+
+@use "components/header";
+@use "components/footer";
+// @use "components/content-home";
+@use "components/content-artists";
+@use "components/content-artist";
+@use "components/content-infos";
+@use "components/content-project";
+
+@use "templates/home";
+@use "templates/project";

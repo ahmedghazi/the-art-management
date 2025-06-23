@@ -1,0 +1,56 @@
+import {FiPlay} from 'react-icons/fi'
+import {defineField} from 'sanity'
+
+export default {
+  title: 'Video Mux',
+  name: 'videoMux',
+  type: 'object',
+  icon: FiPlay,
+  fields: [
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    }),
+    defineField({
+      name: 'withAudio',
+      type: 'boolean',
+      title: "Avec de l'audio",
+      description: "Avec de l'audio",
+    }),
+    defineField({
+      name: 'videoDesktop',
+      type: 'mux.video',
+    }),
+    defineField({
+      name: 'videoMobile',
+      type: 'mux.video',
+    }),
+    defineField({
+      name: 'videoIndex',
+      type: 'mux.video',
+    }),
+    defineField({
+      name: 'placeholder',
+      type: 'image',
+      description: 'Image placeholder',
+    }),
+  ],
+
+  preview: {
+    select: {
+      title: 'title',
+      media: 'placeholder',
+    },
+    // component: VideoPreview,
+    prepare(selection: any) {
+      console.log(selection)
+      const {media, title} = selection
+      return {
+        title: title,
+        media: media,
+        subtitle: 'Video Mux',
+      }
+    },
+  },
+}

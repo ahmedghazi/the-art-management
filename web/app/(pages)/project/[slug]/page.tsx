@@ -1,0 +1,58 @@
+import React from "react";
+import website from "@/app/config/website";
+import { getClient } from "@/app/sanity-api/sanity-client";
+import { Metadata, NextPage } from "next";
+import { draftMode } from "next/headers";
+import {
+  getProject,
+  PAGE_MODULAIRE_QUERY,
+  PROJECT_QUERY,
+} from "@/app/sanity-api/sanity-queries";
+import { Project } from "@/app/types/schema";
+import { notFound } from "next/navigation";
+import ContentModulaire from "@/app/components/ContentModulaire";
+import ContentProject from "@/app/components/ContentProject";
+
+type Params = Promise<{ slug: string }>;
+
+type PageProps = {
+  params: Params;
+};
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const data = await getProject(slug);
+  return {
+    title: `${data?.seo?.metaTitle || data?.title?.fr || ""}`,
+    description: data?.seo?.metaDescription,
+    openGraph: {
+      images: data?.seo?.metaImage?.asset.url || website.image,
+    },
+  };
+}
+
+const TemplateProject: NextPage<PageProps> = async ({ params }) => {
+  const { isEnabled } = await draftMode();
+  const { slug } = await params;
+  let data: Project;
+  if (isEnabled) {
+    data = await getClient({ token: process.env.SANITY_API_READ_TOKEN }).fetch(
+      PROJECT_QUERY,
+      { slug: slug }
+    );
+  } else {
+    data = (await getProject(slug)) as Project;
+  }
+
+  if (!data) return notFound();
+
+  return (
+    <div className='template template--project' data-template='project'>
+      <ContentProject input={data} />
+    </div>
+  );
+};
+
+export default TemplateProject;

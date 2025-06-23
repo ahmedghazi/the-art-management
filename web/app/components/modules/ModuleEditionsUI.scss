@@ -1,0 +1,18 @@
+// ModuleEditionsUI styles
+.module-editions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+
+  &__item {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+}

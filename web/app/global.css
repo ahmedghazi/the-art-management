@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+[data-theme="theme-tam"] {
+  --header-height: 43.5px;
+  --color-bg: #fff;
+  --color-primary: #000;
+  --color-secondary: #aaaaaa;
+  --color-hover: #333;
+  --color-accent: #ff0000;
+  --color-red: #ff0000;
+
+  --font-primary: "ABCOtto-Light", serif;
+  --font-secondary: "ABCMonumentGrotesk-Bold", "Helvetica Neue",
+    "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman",
+    "TeXGyreHerosRegular", "Helvetica", "Arial", sans-serif;
+
+  --spacing-xs: 0.4em;
+  --spacing-sm: 0.813em; /*13px*/
+  --spacing-md: 1.625rem; /*26px*/
+  --spacing-lg: 2rem; /*32px*/
+  --spacing-xl: 3.75rem;
+  --spacing-2xl: 6.25rem;
+
+  --text-md-mobile: 1rem;
+
+  --text-sm: 0.75rem; /*12px*/
+  --text-sm-alt: 0.813rem; /*13px*/
+  --text-md: 1rem; /*16px*/
+  --text-md-alt: 1.063rem; /*17px*/
+  --text-lg: 1.25rem /*20px */;
+  --text-lg-alt: 1.313rem /*21px */;
+  --text-xl: 1.688rem; /*27px*/
+  --text-2xl: 2.25rem; /*36px*/
+  --text-2xl-alt: 2.313rem; /*37px*/
+
+  --cubic: cubic-bezier(0.87, 0, 0.13, 1);
+
+  /* --text-xl: clamp(26px, 5.21vw, 75px);*/
+
+  --border-width: 2px;
+  --border: var(--border-width) solid;
+  --border-width-lg: 2px;
+  --border-lg: var(--border-width-lg) solid;
+
+  --gutter: 0.813em; /*13px*/
+
+  --screen-sm: 768px;
+  --screen-md: 1080px;
+  --screen-lg: 1441px;
+}
+
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-hover: var(--color-hover);
+  --color-accent: var(--color-accent);
+  --color-red: var(--color-red);
+
+  --font-primary: var(--font-primary);
+  --font-secondary: var(--font-secondary);
+
+  --spacing-1e: 1em;
+  --spacing-2e: 2em;
+  --spacing-xs: var(--spacing-xs);
+  --spacing-sm: var(--spacing-sm);
+  --spacing-md: var(--spacing-md);
+  --spacing-lg: var(--spacing-lg);
+  --spacing-xl: var(--spacing-xl);
+  --spacing-2xl: var(--spacing-2xl);
+
+  --text-md-mobile: var(--text-md-mobile);
+
+  --text-sm: var(--text-sm);
+  --text-sm--line-height: calc(16 / 12);
+  --text-sm-alt: var(--text-sm-alt);
+  --text-sm-alt--line-height: calc(17 / 13);
+  --text-md: var(--text-md);
+  --text-md--line-height: calc(19 / 16);
+  --text-md-alt: var(--text-md-alt);
+  --text-md-alt--line-height: calc(21 / 17);
+  --text-lg: var(--text-lg);
+  --text-lg--line-height: calc(27 / 20);
+  --text-lg-alt: var(--text-lg-alt);
+  --text-lg--line-height: calc(27 / 21);
+  --text-xl: var(--text-xl);
+  --text-xl--line-height: calc(27 / 27);
+  --text-2xl: var(--text-2xl);
+  --text-2xl--line-height: calc(36 / 36);
+  --text-2xl-alt: var(--text-2xl-alt);
+  --text-2xl-alt--line-height: calc(37 / 37);
+
+  --cubic: var(--cubic);
+
+  --border-width: var(--border-width);
+  --border: var(--border);
+  --border-width-lg: var(--border-width-lg);
+  --border-lg: var(--border-lg);
+
+  --gutter: var(--gutter);
+
+  --screen-sm: var(--screen-sm);
+  --screen-md: var(--screen-md);
+  --screen-lg: var(--screen-lg);
+}
+
+@layer components {
+  .grid {
+    display: grid;
+    gap: var(--spacing-sm);
+  }
+  .grid--8 {
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+    }
+  }
+}

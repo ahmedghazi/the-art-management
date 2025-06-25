@@ -43,7 +43,8 @@
         //   width: var(--col-1-8);
         // }
       }
-      .grid {
+      .grid,
+      .md\:grid {
         &.len-2 .project-media {
           width: calc((var(--col-1-8) * 2) + var(--gutter));
         }

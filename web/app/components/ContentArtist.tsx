@@ -26,6 +26,7 @@ const ContentArtist = ({ input }: Props) => {
 
   useGSAP(
     () => {
+      return;
       // Check if we can find the template element
       const scroller = document.querySelector("main .template");
       if (!scroller) {

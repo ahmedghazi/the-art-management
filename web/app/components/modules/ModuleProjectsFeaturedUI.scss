@@ -19,7 +19,11 @@
     li.nav--artist {
       width: 100%;
       font-size: var(--text-md-alt);
-      transition: padding-bottom 0.4s var(--cubic);
+      transition: padding-bottom 0.4s var(--cubic), opacity 0.4s var(--cubic),
+        color 0.4s var(--cubic);
+      opacity: 0.7;
+      color: #cecece;
+      padding-bottom: 4px;
       cursor: pointer;
       .tag {
         opacity: 0;
@@ -50,7 +54,9 @@
       }
       &:hover,
       &.is-active {
-        padding-bottom: var(--spacing-sm);
+        color: white;
+        opacity: 1;
+        padding-bottom: calc(var(--spacing-sm) * 1.5);
         .tag {
           opacity: 1;
         }

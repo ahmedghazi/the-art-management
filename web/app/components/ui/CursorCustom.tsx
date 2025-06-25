@@ -17,6 +17,8 @@ const CursorCustom = ({ children }: Props) => {
 
   const _handleCursor = (e: MouseEvent) => {
     if (!cursorRef.current) return;
+    const isOutOfBound = e.clientY < 45 || e.clientY > window.innerHeight - 45;
+    cursorRef.current.style.opacity = isOutOfBound ? `0` : `1`;
     cursorRef.current.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
   };
 

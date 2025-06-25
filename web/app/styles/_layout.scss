@@ -24,18 +24,18 @@ body {
 #page {
 }
 main {
-  min-height: var(--app-height, 100vh);
   position: relative;
-  // padding-top: var(--header-height);
-  height: var(--app-height, 100vh);
-  overflow: hidden;
-  overflow-y: auto;
-  scroll-snap-type: y proximity;
-  scroll-behavior: smooth;
+  .template {
+    height: calc(var(--vh) * 100);
+    overflow: hidden;
+    overflow-y: auto;
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+  }
 }
 
 .h-app {
-  height: var(--app-height);
+  height: calc(var(--vh) * 100);
 }
 
 @media all and (min-width: variables.$md) {

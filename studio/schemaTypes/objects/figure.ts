@@ -11,11 +11,12 @@ export default defineField({
     select: {
       media: 'image',
       title: `caption`,
+      project: 'project.title.en',
     },
     prepare(selection) {
-      const {media, title} = selection
+      const {media, title, project} = selection
       return {
-        title: title,
+        title: title ? title : project,
         media: media,
         subtitle: 'Figure',
       }
@@ -36,10 +37,12 @@ export default defineField({
         // {name: 'attribution', title: 'Attribution', type: 'string'}
       ],
     }),
-    // defineField({
-    //   name: 'caption',
-    //   title: 'Caption',
-    //   type: 'string',
-    // }),
+    defineField({
+      name: 'project',
+      title: 'project',
+      type: 'reference',
+      description: 'will replace the title in the project page',
+      to: [{type: 'project'}],
+    }),
   ],
 })

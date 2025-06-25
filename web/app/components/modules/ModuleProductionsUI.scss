@@ -1,6 +1,9 @@
 [data-slug="production"] {
-  background-color: black;
-  color: white;
+  &,
+  .template {
+    background-color: black;
+    color: white;
+  }
   svg path {
     fill: white;
   }

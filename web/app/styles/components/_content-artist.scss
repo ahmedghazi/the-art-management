@@ -1,21 +1,42 @@
 [data-template="is-artist"] {
-  main {
-    padding-top: 196px;
+  .template {
+    // padding-top: 196px;
+    padding-top: 165px;
   }
   .content--artist {
+    h2 {
+      text-align: center;
+      margin-bottom: var(--spacing-md);
+    }
     .text {
       .sans {
         font-size: 1.05em;
       }
     }
+    .projects-tagged {
+      .flex {
+        // justify-content: center;
+        &.len-3 {
+        }
+        .card--project {
+          h2 {
+            padding-top: 0.2em;
+            text-align: center;
+          }
+        }
+      }
+    }
     .projects {
       text-align: center;
       h2 {
-        margin-bottom: 1em;
+        margin-bottom: var(--spacing-sm);
       }
-      .flex.grid--8 {
-        justify-content: center;
-        gap: var(--gutter);
+      .grid--8 {
+        // justify-content: center;
+        // gap: var(--gutter);
+        &.len-2 .project-media {
+          width: calc((var(--col-1-8) * 2) + var(--gutter));
+        }
         .project-media {
           width: var(--col-1-8);
         }

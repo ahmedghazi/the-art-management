@@ -67,6 +67,21 @@ export default defineType({
     }),
 
     defineField({
+      name: 'editions',
+      title: 'Editions',
+      type: 'array',
+      of: [{type: 'edition'}],
+      group: 'editorial',
+    }),
+
+    defineField({
+      name: 'projectsTagged',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'project'}]}],
+      group: 'editorial',
+    }),
+
+    defineField({
       name: 'projects',
       title: 'Projets',
       // description: 'Projets',

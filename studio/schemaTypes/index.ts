@@ -14,28 +14,20 @@ import localeBlockContent from './locale/localeBlockContent'
 import blockContent from './objects/blockContent'
 import linkExternal from './objects/linkExternal'
 import linkInternal from './objects/linkInternal'
-// import linkModal from './objects/linkModal'
-// import tagGroup from './objects/tagGroup'
 import seo from './objects/seo'
 import embed from './objects/embed'
 import keyVal from './objects/keyVal'
 import keyValGroup from './objects/keyValGroup'
-// import video from './objects/video'
-// import interTitre from './objects/interTitre'
 import productionItem from './objects/productionItem'
 import figures from './objects/figures'
 import figure from './objects/figure'
 import videoMux from './objects/videoMux'
 import projectFeatured from './objects/projectFeatured'
-
 import artistsGrid from './objects/artistsGrid'
+import edition from './objects/edition'
 
-// import imagesUI from './objects/modules/imagesUI'
 import artistsGridUI from './objects/modules/artistsGridUI'
-import editionsUI from './objects/modules/editionsUI'
-import imageUI from './objects/modules/imageUI'
 import projectsUI from './objects/modules/projectsUI'
-import textUI from './objects/modules/textUI'
 import videoUI from './objects/modules/videoUI'
 import projectsFeaturedUI from './objects/modules/projectsFeaturedUI'
 import productionsUI from './objects/modules/productionsUI'
@@ -67,13 +59,10 @@ export const schemaTypes = [
   videoMux,
   projectFeatured,
   artistsGrid,
+  edition,
 
-  // imagesUI,
   artistsGridUI,
-  editionsUI,
-  imageUI,
   projectsUI,
-  textUI,
   videoUI,
   projectsFeaturedUI,
   productionsUI,

@@ -1,7 +1,7 @@
-export const slideInOutV2 = (direction: string, duration: number = 5500) => {
+export const slideInOutV2 = (direction: string, duration: number = 10000) => {
   // const easing = "cubic-bezier(0.87, 0, 0.13, 1)";
   const easing = "ease";
-  const x: number = direction === "next" ? -100 : 100;
+  const x: number = direction === "next" ? -10 : 10;
   const clipPath =
     direction === "next"
       ? "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)"
@@ -12,11 +12,11 @@ export const slideInOutV2 = (direction: string, duration: number = 5500) => {
     [
       {
         opacity: 1,
-        transform: "translateX(0)",
+        // transform: "translateX(0)",
       },
       {
         opacity: 0,
-        transform: `translateX(${x}%)`,
+        // transform: `translateX(${x}%)`,
       },
     ],
     {

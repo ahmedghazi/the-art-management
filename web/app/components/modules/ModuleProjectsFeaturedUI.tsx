@@ -59,7 +59,9 @@ const ModuleProjectsFeaturedUI = ({ input }: Props) => {
                 className='nav--artist'
                 id={`nav-${item._key}`}
                 onClick={() => _scrollToSection(item._key)}>
-                <div className='project'>{_localizeField(item.title)}</div>
+                <div className='project'>
+                  {_localizeField(item.project?.title)}
+                </div>
                 <h2 className='artist sans'>{item.artist?.name}</h2>
                 <div className='tag'>
                   {_localizeField(item.artist?.tag?.title)}

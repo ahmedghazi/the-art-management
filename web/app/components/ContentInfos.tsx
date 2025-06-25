@@ -4,6 +4,7 @@ import { Infos } from "../types/schema";
 import { PortableText } from "next-sanity";
 import portableTextComponents from "../sanity-api/portableTextComponents";
 import { _localizeField } from "../sanity-api/utils";
+import Credits from "./ui/Credits";
 
 type Props = {
   input: Infos;
@@ -57,7 +58,14 @@ const ContentInfos = ({ input }: Props) => {
           </div>
         </div>
       </div>
-      <div className='credits'>credits</div>
+      <div className='credits'>
+        <div className='grid md:grid-cols-4 sans text-sm'>
+          <div className='copy md:col-span-3'>
+            © {new Date().getFullYear()} The Art Management
+          </div>
+          <Credits />
+        </div>
+      </div>
     </div>
   );
 };

@@ -9,7 +9,13 @@ import React, {
 import { usePathname } from "next/navigation";
 // import { getSettings } from "../utils/sanity-queries";
 
-const PageContext = createContext({});
+type PageContextType = {
+  settings: {
+    pathname: string;
+  };
+  userHistory: string[];
+};
+const PageContext = createContext({} as PageContextType);
 
 interface PageContextProps {
   // location?: object;
@@ -20,8 +26,8 @@ interface PageContextProps {
 export const PageContextProvider = (props: PageContextProps) => {
   const { children } = props;
   const pathname = usePathname();
+  const [userHistory, setUserHistory] = useState<string[]>([]);
   // console.log(pathname);
-  const [isInfos, setIsInfos] = useState<boolean>(false);
   const settings = {
     pathname,
   };
@@ -29,6 +35,7 @@ export const PageContextProvider = (props: PageContextProps) => {
   useEffect(() => {
     _handlePageTemplate();
     _format();
+    setUserHistory((prev) => [...prev, pathname]);
   }, [pathname]);
 
   useEffect(() => {
@@ -42,11 +49,8 @@ export const PageContextProvider = (props: PageContextProps) => {
   }, []);
 
   const _format = () => {
-    // const wh = window.innerHeight;
-
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
-    // document.documentElement.style.setProperty("--app-height", wh + "px");
 
     const header = document.querySelector("header");
     let headerBounding = { height: 50 };
@@ -58,8 +62,15 @@ export const PageContextProvider = (props: PageContextProps) => {
         headerBounding.height + "px"
       );
     }
-    const col1Sur8 = (window.innerWidth - 26) / 8;
-    document.documentElement.style.setProperty("--col-1-8", col1Sur8 + "px");
+
+    const col1Sur8 = document.querySelector(".grid-sample .item");
+    if (col1Sur8) {
+      const col1Sur8Bounding = col1Sur8.getBoundingClientRect();
+      document.documentElement.style.setProperty(
+        "--col-1-8",
+        col1Sur8Bounding.width + "px"
+      );
+    }
 
     document.body.classList.remove("is-loading");
   };
@@ -68,7 +79,6 @@ export const PageContextProvider = (props: PageContextProps) => {
     const mainDiv: HTMLElement = document.querySelector(
       "main [data-template]"
     ) as HTMLElement;
-    // console.log(mainDiv);
     if (mainDiv) {
       const template = mainDiv.dataset.template;
       document.body.dataset.template = `is-${template}`;
@@ -78,13 +88,10 @@ export const PageContextProvider = (props: PageContextProps) => {
   };
 
   return (
-    <PageContext.Provider value={{ settings, isInfos, setIsInfos }}>
+    <PageContext.Provider value={{ settings, userHistory }}>
       {children}
     </PageContext.Provider>
   );
 };
-
-// export default PageContext;
-// export { PageContext, PageContextProvider };
 
 export const usePageContext = () => useContext(PageContext);

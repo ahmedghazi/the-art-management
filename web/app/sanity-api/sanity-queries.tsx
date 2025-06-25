@@ -123,7 +123,27 @@ export const ARTIST_QUERY = groq`*[_type == "artist" && slug.current == $slug][0
   seo{
     ${seo}
   },
+  editions[]{
+    ...,
+    imageCover{
+      asset->
+    },
+    images[]{
+      asset->
+    }
+  },
+  projectsTagged[]->{
+    _id,
+    _type,
+    slug,
+    title,
+    subTitle,
+    imageCover{
+      asset->
+    }
+  },
   projects[]->{
+    _id,
     _type,
     slug,
     title,
@@ -171,6 +191,10 @@ export const PROJECT_QUERY = groq`*[_type == "project" && slug.current == $slug]
   },
   media[]{
     ${media}
+  },
+  nextProject->{
+    _type,
+    slug
   }
 }`;
 

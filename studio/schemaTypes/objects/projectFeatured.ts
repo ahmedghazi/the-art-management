@@ -17,7 +17,14 @@ export default defineField({
     defineField({
       name: 'title',
       type: 'localeString',
+      hidden: true,
     }),
+    defineField({
+      name: 'project',
+      type: 'reference',
+      to: [{type: 'project'}],
+    }),
+
     defineField({
       name: 'media',
       type: 'array',
@@ -30,8 +37,8 @@ export default defineField({
   ],
   preview: {
     select: {
-      title: `artist.name`,
-      subtitle: `title.${baseLanguage}`,
+      title: `project.title.${baseLanguage}`,
+      subtitle: `artist.name`,
       media: 'media.0.image',
     },
     prepare(selection) {

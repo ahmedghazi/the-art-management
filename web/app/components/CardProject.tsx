@@ -4,36 +4,23 @@ import { _linkResolver, _localizeField } from "../sanity-api/utils";
 import { Project } from "../types/schema";
 import Figure from "./ui/Figure";
 import AOS from "./ui/AOS";
+import LinkTransition from "./ui/LinkTransition";
 
 type Props = {
   input: Project;
 };
 
 const CardProject = ({ input }: Props) => {
-  // console.log(input);
-
   return (
     <div className='card--project mb-lg'>
-      <Link href={_linkResolver(input)}>
-        <h2>{_localizeField(input.title)}</h2>
-        <div className='flex grid--8'>
-          {input.media?.map((item, i) => (
-            <Fragment key={item._key}>
-              {item._type === "figure" && (
-                <AOS delay={i * 0.5}>
-                  <div className='project-media'>
-                    <Figure
-                      asset={item.image?.asset}
-                      width={600}
-                      alt={_localizeField(input.title) || ""}
-                    />
-                  </div>
-                </AOS>
-              )}
-            </Fragment>
-          ))}
-        </div>
-      </Link>
+      <LinkTransition href={_linkResolver(input)}>
+        <Figure
+          asset={input.imageCover?.asset}
+          width={600}
+          alt={_localizeField(input.title) || ""}
+        />
+        <h2 className='sans'>{_localizeField(input.subTitle)}</h2>
+      </LinkTransition>
     </div>
   );
 };

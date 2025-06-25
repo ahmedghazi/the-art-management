@@ -23,6 +23,7 @@
 
   --text-md-mobile: 1rem;
 
+  --text-xs: 0.625rem; /*12px*/
   --text-sm: 0.75rem; /*12px*/
   --text-sm-alt: 0.813rem; /*13px*/
   --text-md: 1rem; /*16px*/
@@ -71,6 +72,7 @@
 
   --text-md-mobile: var(--text-md-mobile);
 
+  --text-xs: var(--text-xs);
   --text-sm: var(--text-sm);
   --text-sm--line-height: calc(16 / 12);
   --text-sm-alt: var(--text-sm-alt);
@@ -82,9 +84,9 @@
   --text-lg: var(--text-lg);
   --text-lg--line-height: calc(27 / 20);
   --text-lg-alt: var(--text-lg-alt);
-  --text-lg--line-height: calc(27 / 21);
+  --text-lg-alt--line-height: calc(27 / 21);
   --text-xl: var(--text-xl);
-  --text-xl--line-height: calc(27 / 27);
+  --text-xl--line-height: calc(33 / 27);
   --text-2xl: var(--text-2xl);
   --text-2xl--line-height: calc(36 / 36);
   --text-2xl-alt: var(--text-2xl-alt);
@@ -112,6 +114,12 @@
   .grid--8 {
     @media (width >= 48rem) {
       grid-template-columns: repeat(8, minmax(0, 1fr));
+      /* grid-template-columns: var(--w-1-8) 1fr; */
     }
+  }
+  .w-col-1-8 {
+    /* min-width: var(--col-1-8);
+    flex-basis: var(--col-1-8); */
+    width: var(--col-1-8);
   }
 }

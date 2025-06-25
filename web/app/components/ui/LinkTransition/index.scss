@@ -30,6 +30,7 @@ header {
 }
 main .template {
   view-transition-name: the-main;
+  background-color: var(--color-bg);
 }
 
 ::view-transition-old(the-main),

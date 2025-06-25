@@ -62,6 +62,8 @@ export const structure = (S) =>
       S.listItem().title('Artists').schemaType('artist').child(S.documentTypeList('artist')),
       S.listItem().title('Projects').schemaType('project').child(S.documentTypeList('project')),
       S.divider(),
+      S.listItem().title('Tags').schemaType('tag').child(S.documentTypeList('tag')),
+      S.divider(),
 
       // S.listItem()
       //   .title('production')

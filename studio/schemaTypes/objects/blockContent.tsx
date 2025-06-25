@@ -16,6 +16,9 @@ import linkIntternalTypes from '../misc/linkIntternalTypes'
 const TextNormal = (props: any) => (
   <span style={{fontSize: '1rem', fontFamily: 'serif'}}> {props.children} </span>
 )
+const TextH1 = (props: any) => (
+  <span style={{fontFamily: 'sans', margin: 0, padding: 0}}> {props.children} </span>
+)
 const TextL = (props: any) => (
   <span style={{fontSize: '2rem', marginTop: 0}}> {props.children} </span>
 )
@@ -36,6 +39,12 @@ export default defineType({
       // use your content.
       styles: [
         {title: 'Normal', value: 'normal'},
+
+        {
+          title: 'h1',
+          value: 'h1',
+          component: TextH1,
+        },
 
         {
           title: 'Texte L',

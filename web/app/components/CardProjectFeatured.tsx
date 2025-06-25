@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { Project, ProjectFeatured, SanityKeyed } from "../types/schema";
-import { _localizeField, _slugify } from "../sanity-api/utils";
+import { _linkResolver, _localizeField, _slugify } from "../sanity-api/utils";
 import Figure from "./ui/Figure";
 import clsx from "clsx";
 import useOnScreen from "../hooks/useOnScreen";
 import { publish } from "pubsub-js";
+import LinkTransition from "./ui/LinkTransition";
 
 type Props = {
   input: SanityKeyed<ProjectFeatured>;
@@ -25,19 +26,21 @@ const CardProjectFeatured = ({ input }: Props) => {
       className='card card--project_featured snap-start'
       ref={ref}
       id={`article-${input._key}`}>
-      <div className={clsx("grid gap-0", `grid-cols-${input.media?.length}`)}>
-        {input.media?.map((item, i) => (
-          <div key={item.image?.asset._id}>
-            {item.image && (
-              <Figure
-                asset={item.image.asset}
-                width={2000}
-                alt={_localizeField(input.title) || ""}
-              />
-            )}
-          </div>
-        ))}
-      </div>
+      <LinkTransition href={_linkResolver(input.project)}>
+        <div className={clsx("grid gap-0", `grid-cols-${input.media?.length}`)}>
+          {input.media?.map((item, i) => (
+            <div key={item.image?.asset._id}>
+              {item.image && (
+                <Figure
+                  asset={item.image.asset}
+                  width={2000}
+                  alt={_localizeField(input.title) || ""}
+                />
+              )}
+            </div>
+          ))}
+        </div>
+      </LinkTransition>
     </article>
   );
 };

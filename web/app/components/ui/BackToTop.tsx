@@ -29,8 +29,8 @@ const BackToTop = () => {
   };
 
   const _click = () => {
-    // const scrollParent = getScrollParent(ref.current as Element);
-    const scrollParent = document.querySelector("main");
+    const scrollParent = getScrollParent(ref.current as Element);
+    // const scrollParent = document.querySelector("main");
     console.log(scrollParent);
     if (!scrollParent) return;
     scrollParent.scrollTo({
@@ -41,7 +41,7 @@ const BackToTop = () => {
 
   return (
     <button
-      className='back-to-top cursor-pointer sans'
+      className='back-to-top cursor-pointer sans absolute bottom-0 right-0 p-sm text-sm'
       onClick={_click}
       ref={ref}>
       Back to top <span>↑</span>

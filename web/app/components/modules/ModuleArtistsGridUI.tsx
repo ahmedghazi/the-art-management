@@ -6,6 +6,7 @@ import { ArtistsGridUI } from "@/app/types/schema";
 import CardArtist from "../CardArtist";
 import AOS from "../ui/AOS";
 import { _localizeField } from "@/app/sanity-api/utils";
+import "./ModuleArtistsGridUI.scss";
 
 interface Props {
   input: ArtistsGridUI;
@@ -20,17 +21,17 @@ const ModuleArtistsGridUI = ({ input }: Props) => {
           <div
             key={index}
             className={clsx("artist-goup", `col-span-${item.items?.length}`)}>
-            {/* <AOS delay={index * 0.05}> */}
-            <h2 className='text-xl'>{_localizeField(item.tag?.title)}</h2>
-            {/* </AOS> */}
+            <AOS delay={index * 0.05}>
+              <h2 className='md:text-xl'>{_localizeField(item.tag?.title)}</h2>
+            </AOS>
             <div className='items'>
               <ul
                 className={clsx("grid", `md:grid-cols-${item.items?.length}`)}>
                 {item.items?.map((item, _index) => (
                   <li key={_index}>
-                    {/* <AOS delay={_index * 0.05}> */}
-                    <CardArtist input={item} />
-                    {/* </AOS> */}
+                    <AOS delay={_index * 0.05}>
+                      <CardArtist input={item} />
+                    </AOS>
                   </li>
                 ))}
               </ul>

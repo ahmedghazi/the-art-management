@@ -1,5 +1,5 @@
 export default [
-  {id: 'fr', title: 'Français', isDefault: true},
-  {id: 'en', title: 'English', isDefault: false},
+  {id: 'en', title: 'English', isDefault: true},
+  {id: 'fr', title: 'Français', isDefault: false},
 ]
-export const baseLanguage = 'fr'
+export const baseLanguage = 'en'

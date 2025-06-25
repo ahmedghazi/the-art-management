@@ -140,11 +140,11 @@ export interface Settings extends SanityDocument {
   siteName?: string;
 
   /**
-   * Description — `string`
+   * Description — `localeBlockContent`
    *
    *
    */
-  description?: string;
+  description?: LocaleBlockContent;
 
   /**
    * Naviguation Primary — `array`
@@ -219,10 +219,7 @@ export interface PageModulaire extends SanityDocument {
   modules?: Array<
     | SanityKeyed<ProjectsFeaturedUI>
     | SanityKeyed<ArtistsGridUI>
-    | SanityKeyed<EditionsUI>
     | SanityKeyed<VideoUI>
-    | SanityKeyed<ImageUI>
-    | SanityKeyed<TextUI>
     | SanityKeyed<ProjectsUI>
     | SanityKeyed<ProductionsUI>
   >;
@@ -251,6 +248,13 @@ export interface Project extends SanityDocument {
   title?: LocaleString;
 
   /**
+   * Sub Title — `localeString`
+   *
+   * Displayed in artist page's tagged projects
+   */
+  subTitle?: LocaleString;
+
+  /**
    * Slug — `slug`
    *
    * URL basée sur le titre (sans espace ni caractère autre que a-z-0-9
@@ -263,6 +267,13 @@ export interface Project extends SanityDocument {
    *
    */
   artist?: SanityReference<Artist>;
+
+  /**
+   * tag — `reference`
+   *
+   *
+   */
+  tag?: SanityReference<Tag>;
 
   /**
    * Image cover — `image`
@@ -282,13 +293,6 @@ export interface Project extends SanityDocument {
    *
    */
   media?: Array<SanityKeyed<Figure> | SanityKeyed<VideoMux>>;
-
-  /**
-   * Projets précédent — `reference`
-   *
-   *
-   */
-  prevProject?: SanityReference<Project>;
 
   /**
    * Projets suivant — `reference`
@@ -377,6 +381,20 @@ export interface Artist extends SanityDocument {
   text?: LocaleBlockContent;
 
   /**
+   * Editions — `array`
+   *
+   *
+   */
+  editions?: Array<SanityKeyed<Edition>>;
+
+  /**
+   * projectsTagged — `array`
+   *
+   *
+   */
+  projectsTagged?: Array<SanityKeyedReference<Project>>;
+
+  /**
    * Projets — `array`
    *
    *
@@ -394,35 +412,35 @@ export interface Artist extends SanityDocument {
 export type LocaleString = {
   _type: "localeString";
   /**
-   * Français — `string`
-   *
-   *
-   */
-  fr?: string;
-
-  /**
    * English — `string`
    *
    *
    */
   en?: string;
+
+  /**
+   * Français — `string`
+   *
+   *
+   */
+  fr?: string;
 };
 
 export type LocaleBlockContent = {
   _type: "localeBlockContent";
-  /**
-   * Français — `blockContent`
-   *
-   *
-   */
-  fr?: BlockContent;
-
   /**
    * English — `blockContent`
    *
    *
    */
   en?: BlockContent;
+
+  /**
+   * Français — `blockContent`
+   *
+   *
+   */
+  fr?: BlockContent;
 };
 
 export type BlockContent = Array<
@@ -562,6 +580,13 @@ export type Figure = {
      */
     alt?: string;
   };
+
+  /**
+   * project — `reference`
+   *
+   * will replace the title in the project page
+   */
+  project?: SanityReference<Project>;
 };
 
 export type Figures = {
@@ -641,11 +666,11 @@ export type VideoMux = {
   videoMobile?: MuxVideo;
 
   /**
-   * videoIndex — `mux.video`
+   * project — `reference`
    *
-   *
+   * will replace the title in the project page
    */
-  videoIndex?: MuxVideo;
+  project?: SanityReference<Project>;
 
   /**
    * placeholder — `image`
@@ -677,6 +702,13 @@ export type ProjectFeatured = {
   title?: LocaleString;
 
   /**
+   * project — `reference`
+   *
+   *
+   */
+  project?: SanityReference<Project>;
+
+  /**
    * media — `array`
    *
    *
@@ -701,6 +733,77 @@ export type ArtistsGrid = {
   items?: Array<SanityKeyedReference<Artist>>;
 };
 
+export type Edition = {
+  _type: "edition";
+  /**
+   * title — `localeString`
+   *
+   *
+   */
+  title?: LocaleString;
+
+  /**
+   * Image — `image`
+   *
+   *
+   */
+  imageCover?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * isbn — `string`
+   *
+   *
+   */
+  isbn?: string;
+
+  /**
+   * Intro — `localeBlockContent`
+   *
+   *
+   */
+  intro?: LocaleBlockContent;
+
+  /**
+   * Images — `array`
+   *
+   * jpg, 1400px de large, 72dpi
+   */
+  images?: Array<
+    SanityKeyed<{
+      _type: "image";
+      asset: SanityReference<SanityImageAsset>;
+      crop?: SanityImageCrop;
+      hotspot?: SanityImageHotspot;
+    }>
+  >;
+
+  /**
+   * Text — `localeBlockContent`
+   *
+   *
+   */
+  text?: LocaleBlockContent;
+
+  /**
+   * link — `linkExternal`
+   *
+   *
+   */
+  link?: LinkExternal;
+
+  /**
+   * price — `number`
+   *
+   *
+   */
+  price?: number;
+};
+
 export type ArtistsGridUI = {
   _type: "artistsGridUI";
   /**
@@ -718,66 +821,6 @@ export type ArtistsGridUI = {
   items?: Array<SanityKeyed<ArtistsGrid>>;
 };
 
-export type EditionsUI = {
-  _type: "editionsUI";
-  /**
-   * title — `string`
-   *
-   * Module title
-   */
-  title?: string;
-
-  /**
-   * Image — `image`
-   *
-   *
-   */
-  image?: {
-    _type: "image";
-    asset: SanityReference<SanityImageAsset>;
-    crop?: SanityImageCrop;
-    hotspot?: SanityImageHotspot;
-  };
-
-  /**
-   * Intro — `localeBlockContent`
-   *
-   *
-   */
-  intro?: LocaleBlockContent;
-
-  /**
-   * Images — `array`
-   *
-   * jpg, 1400px de large, 72dpi
-   */
-  images?: Array<SanityKeyed<Figure>>;
-
-  /**
-   * Text — `localeBlockContent`
-   *
-   *
-   */
-  text?: LocaleBlockContent;
-};
-
-export type ImageUI = {
-  _type: "imageUI";
-  /**
-   * title — `string`
-   *
-   * Module title (displayed only in the admin)
-   */
-  title?: string;
-
-  /**
-   * image — `figure`
-   *
-   *
-   */
-  image?: Figure;
-};
-
 export type ProjectsUI = {
   _type: "projectsUI";
   /**
@@ -793,23 +836,6 @@ export type ProjectsUI = {
    *
    */
   items?: Array<SanityKeyedReference<Project>>;
-};
-
-export type TextUI = {
-  _type: "textUI";
-  /**
-   * title — `string`
-   *
-   * Module title (displayed only in the admin)
-   */
-  title?: string;
-
-  /**
-   * Text — `localeBlockContent`
-   *
-   *
-   */
-  text?: LocaleBlockContent;
 };
 
 export type VideoUI = {

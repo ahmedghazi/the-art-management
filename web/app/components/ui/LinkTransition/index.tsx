@@ -4,7 +4,8 @@ import React, { ReactNode } from "react";
 import { useTransitionRouter } from "next-view-transitions";
 import { slideInOut } from "./transition";
 import "./index.scss";
-import { slideInOutV2 } from "./transition-v2";
+import { slideInOutV2 } from "./slideInOutV2";
+// import { slideInOutV2 } from "./slideInOutV2";
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -14,12 +15,16 @@ interface LinkTransitionProps extends LinkProps {
   children: ReactNode;
   href: string;
   className?: string;
+  direction?: string;
+  duration?: number;
 }
 
 const LinkTransition = ({
   href,
   children,
   className = "",
+  direction = "next",
+  duration = 500,
   ...props
 }: LinkTransitionProps) => {
   const router = useTransitionRouter();
@@ -37,10 +42,10 @@ const LinkTransition = ({
       router.push(href, {
         onTransitionReady: () => {
           console.log("onTransitionReady");
-          slideInOutV2("next", 500);
+          slideInOutV2(direction, duration);
           setTimeout(() => {
             document.body.classList.remove("is-transition");
-          }, 500);
+          }, duration);
         },
       });
     } catch (error) {

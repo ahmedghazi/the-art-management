@@ -33,6 +33,13 @@ export default defineType({
       group: 'editorial',
     }),
     defineField({
+      name: 'subTitle',
+      type: 'localeString',
+      title: 'Sub Title',
+      description: "Displayed in artist page's tagged projects",
+      group: 'editorial',
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -54,6 +61,14 @@ export default defineType({
     }),
 
     defineField({
+      name: 'tag',
+      type: 'reference',
+      to: [{type: 'tag'}],
+      group: 'editorial',
+      hidden: true,
+    }),
+
+    defineField({
       name: 'imageCover',
       type: 'image',
       title: 'Image cover',
@@ -70,13 +85,6 @@ export default defineType({
       group: 'editorial',
     }),
 
-    defineField({
-      name: 'prevProject',
-      title: 'Projets précédent',
-      type: 'reference',
-      to: [{type: 'project'}],
-      group: 'editorial',
-    }),
     defineField({
       name: 'nextProject',
       title: 'Projets suivant',

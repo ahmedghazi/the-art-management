@@ -28,12 +28,13 @@ export default defineType({
     select: {
       title: `title.${baseLanguage}`,
       slug: 'slug',
+      homePage: 'homePage',
     },
     prepare(selection) {
-      const {title, slug} = selection
+      const {title, slug, homePage} = selection
       return {
         title: title,
-        subtitle: `/${slug.current}`,
+        subtitle: homePage ? '/' : `/${slug.current}`,
       }
     },
   },

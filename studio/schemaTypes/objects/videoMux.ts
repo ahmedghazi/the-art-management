@@ -27,8 +27,11 @@ export default {
       type: 'mux.video',
     }),
     defineField({
-      name: 'videoIndex',
-      type: 'mux.video',
+      name: 'project',
+      title: 'project',
+      type: 'reference',
+      description: 'will replace the title in the project page',
+      to: [{type: 'project'}],
     }),
     defineField({
       name: 'placeholder',

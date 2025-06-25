@@ -25,6 +25,7 @@ body {
   font-family: var(--font-primary);
   font-size: var(--text-md-mobile);
   line-height: 1.2;
+  line-height: 1.375;
   // text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   letter-spacing: -0.003em; /* -0.3% */
@@ -97,6 +98,7 @@ a[aria-current="page"] {
 p,
 .text p {
   margin-bottom: 1em;
+  line-height: inherit;
   &:last-child {
     margin-bottom: 0;
   }
@@ -116,23 +118,23 @@ p,
   padding: 0 0.3em;
 }
 
-.text {
-  h2,
-  h3 {
-    margin-bottom: 1em;
-  }
-  p {
-    // text-indent: 1em;
-    margin-bottom: 1em;
-    line-height: 1.2;
-    @media all and (min-width: var(--screen-md)) {
-      line-height: 1.12;
-    }
-  }
-  // p:first-child {
-  //   text-indent: 0;
-  // }
-}
+// .text {
+//   h2,
+//   h3 {
+//     margin-bottom: 1em;
+//   }
+//   p {
+//     // text-indent: 1em;
+//     margin-bottom: 1em;
+//     line-height: 1.2;
+//     @media all and (min-width: var(--screen-md)) {
+//       line-height: 1.12;
+//     }
+//   }
+//   // p:first-child {
+//   //   text-indent: 0;
+//   // }
+// }
 
 .tabnum {
   font-feature-settings: "tnum" on, "lnum" on, "case" on;

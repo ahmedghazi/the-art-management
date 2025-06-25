@@ -1,2 +1,5 @@
-- basculer sur le back avec eng en defautl lang
-- intro (landing)
+<!-- - page transition -->
+<!-- - intro (landing) -->
+<!-- - credits -->
+
+- footer

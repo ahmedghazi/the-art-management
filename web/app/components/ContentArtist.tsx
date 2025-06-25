@@ -5,35 +5,68 @@ import { PortableText } from "next-sanity";
 import portableTextComponents from "../sanity-api/portableTextComponents";
 import { _localizeField } from "../sanity-api/utils";
 import CardProject from "./CardProject";
+import CardsProject from "./CardsProject";
+import clsx from "clsx";
+import ProjectEdition from "./ProjectEdition";
+import BackToTop from "./ui/BackToTop";
 
 type Props = {
   input: Artist;
 };
 
 const ContentArtist = ({ input }: Props) => {
-  const { name, text, projects, links } = input;
+  const { name, text, editions, projectsTagged, projects, links } = input;
+  console.log(input);
+  const hasEditions = editions && editions?.length > 0;
   return (
     <div className='content--artist px-sm'>
-      <section className='presentation mb-xl'>
-        <div className='grid grid--8'>
-          <div className='md:col-start-3 md:col-span-4'>
-            <div className='text md:text-lg'>
-              <PortableText
-                value={_localizeField(text)}
-                components={portableTextComponents}
-              />
+      {text && (
+        <section className='presentation mb-2xl'>
+          <div className='grid grid--8'>
+            <div className='md:col-start-3 md:col-span-4'>
+              <div className='text md:text-lg'>
+                <PortableText
+                  value={_localizeField(text)}
+                  components={portableTextComponents}
+                />
+              </div>
             </div>
           </div>
+        </section>
+      )}
+      {hasEditions && <h2 className='sans'>Editions</h2>}
+      {hasEditions && (
+        <section className='editions mb-2xl'>
+          {editions?.map((item, i) => (
+            <ProjectEdition key={i} input={item} />
+          ))}
+        </section>
+      )}
+
+      {hasEditions && <h2 className='sans'>Works</h2>}
+
+      <section className='projects projects-tagged mb-2xl'>
+        <div
+          className={clsx(
+            "flex justify-center gap-sm",
+            `len-${projectsTagged?.length}`
+          )}>
+          {/* <pre>{JSON.stringify(projectsTagged, null, 2)}</pre> */}
+          {projectsTagged?.map((item, i) => (
+            <div key={i} className={"w-2/8"}>
+              {item && item.slug && <CardProject input={item} />}
+            </div>
+          ))}
         </div>
       </section>
-      <section className='projects mb-xl'>
+      <section className='projects projects mb-2xl'>
         {projects?.map((item, i) => (
           <Fragment key={i}>
-            {item && item.slug && <CardProject input={item} />}
+            {item && item.slug && <CardsProject input={item} />}
           </Fragment>
         ))}
       </section>
-      <section className='links mb-xl'>
+      <section className='links py-lg mb-2xl'>
         {/* <pre>{JSON.stringify(links, null, 2)}</pre> */}
         <ul>
           {links?.map((item, i) => (
@@ -46,6 +79,7 @@ const ContentArtist = ({ input }: Props) => {
           ))}
         </ul>
       </section>
+      <BackToTop />
     </div>
   );
 };

@@ -1,0 +1,15 @@
+.edition {
+  h3,
+  .isbn {
+    text-align: center;
+  }
+  h3 {
+    padding: var(--spacing-xs) 0;
+  }
+  .cta {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}

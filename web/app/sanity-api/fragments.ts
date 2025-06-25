@@ -52,6 +52,9 @@ export const media = `
 		...,
 		image{
 			asset->
+		},
+		project->{
+		  title,
 		}
 	},
 	_type == 'videoMux' => {
@@ -59,7 +62,7 @@ export const media = `
 	}
 `;
 
-export const introUI = `
+const introUI = `
 	_type ==  'introUI' => {
 		...,
 		items[]{
@@ -69,12 +72,19 @@ export const introUI = `
 	}
 `;
 
-export const projectsFeaturedUI = `
+const projectsFeaturedUI = `
 	_type == 'projectsFeaturedUI' => {
 		...,
 		items[]{
 			_key,
+			_type,
+			slug,
 			title,
+			project->{
+				_type,
+				slug,
+				title
+			},
 			artist->{
 				name,
 				tag->{
@@ -91,7 +101,7 @@ export const projectsFeaturedUI = `
 	}
 `;
 
-export const artistsGridUI = `
+const artistsGridUI = `
 	_type == 'artistsGridUI' => {
 		...,
 		items[]{
@@ -111,7 +121,7 @@ export const artistsGridUI = `
 	}
 `;
 
-export const editionsUI = `
+const editionsUI = `
 	_type == 'editionsUI' => {
 		...,
 		title,
@@ -146,7 +156,7 @@ export const editionsUI = `
 	}
 `;
 
-export const productionsUI = `
+const productionsUI = `
 	_type == 'productionsUI' => {
 		...,
 		items[]{

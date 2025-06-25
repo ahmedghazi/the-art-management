@@ -25,7 +25,7 @@ export function useScroll() {
   const lastScrollTop: number = lastScrollTopRef.current;
 
   const listener = (e: Event) => {
-    const scroller = document?.querySelector("main");
+    const scroller = e.target as HTMLElement;
     if (!scroller) return;
     setBodyOffset(
       typeof window === "undefined" || !window.document
@@ -36,17 +36,18 @@ export function useScroll() {
     setScrollX(bodyOffset.left);
     setScrollDirection(lastScrollTop > -bodyOffset.top ? "down" : "up");
     // lastScrollTopRef.current = -bodyOffset.top
-    // console.log(window.scrollY, window.innerHeight)
+    // console.log(scroller.scrollTop, scroller.clientHeight);
     setIsBelowViewPort(scroller.scrollTop > 50);
     const distanceToBottom =
       scroller.scrollHeight - (window.innerHeight + scroller.scrollTop);
+    // console.log(distanceToBottom);
     setIsBottom(distanceToBottom <= bottomThreshold);
     // _prevScrollTop = window.pageYOffset
     lastScrollTopRef.current = -bodyOffset.top;
   };
 
   useEffect(() => {
-    const scroller = document?.querySelector("main");
+    const scroller = document?.querySelector("main .template");
     if (!scroller) return;
     scroller.addEventListener("scroll", listener);
     return () => {

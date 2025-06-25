@@ -7,17 +7,8 @@ export default defineType({
   type: 'document',
   icon: CogIcon,
   groups: [
-    // {
-    //   default: true,
-    //   name: 'navigation',
-    //   title: 'Navigation',
-    // },
     {
       default: true,
-      name: 'seo',
-      title: 'Default SEO',
-    },
-    {
       name: 'header',
       title: 'Header',
     },
@@ -50,7 +41,7 @@ export default defineType({
     defineField({
       name: 'description',
       title: 'Description',
-      type: 'string',
+      type: 'localeBlockContent',
       // description: "Visible en page d'accueil header",
       group: 'header',
     }),

@@ -8,28 +8,6 @@
       margin-bottom: 0;
     }
 
-    &.module--artists-grid-ui {
-      padding: 0 var(--spacing-sm);
-      h2 {
-        margin-bottom: 1em;
-      }
-      .module--list-key-val-ui {
-        flex: 1;
-      }
-      .items {
-      }
-      .card--artist {
-        img {
-          width: 100%;
-          height: 100%;
-          aspect-ratio: 16/20;
-        }
-        h3 {
-          padding-top: 0.2em;
-          // line-height: 19px;
-        }
-      }
-    }
     @media all and (min-width: variables.$md) {
     }
   }

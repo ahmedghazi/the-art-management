@@ -1,12 +1,12 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Settings } from "../types/schema";
 import Logo from "./Logo";
 import { PortableText } from "next-sanity";
 import { _localizeField } from "../sanity-api/utils";
 import portableTextComponents from "../sanity-api/portableTextComponents";
 import clsx from "clsx";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { usePageContext } from "../context/PageContext";
 
 type Props = {
@@ -39,7 +39,7 @@ const Splash = ({ settings }: Props) => {
       onMouseMove={() => setCollapse(true)}
       onClick={() => setCollapse(true)}>
       <div className='flex'>
-        <div className='text md:text-xl'>
+        <div className='text text-lg md:text-2xl'>
           <PortableText
             value={_localizeField(settings.description)}
             components={portableTextComponents}

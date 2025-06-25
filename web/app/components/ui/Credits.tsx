@@ -12,7 +12,7 @@ const Credits = (props: Props) => {
 
   return (
     <div
-      className='credits flex items-baseline uppercase gap-[39px]] serif'
+      className='credits flex items-baseline uppercase gap-[39px] serif'
       // onMouseEnter={() => setOpen(true)}
       // onMouseLeave={() => setOpen(false)}
     >

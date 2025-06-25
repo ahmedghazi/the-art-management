@@ -12,16 +12,16 @@ type Props = {
 
 const ContentInfos = ({ input }: Props) => {
   return (
-    <div className='content content--infos p-sm'>
-      <div className='grid md:grid-cols-2'>
-        <div className='text md:text-xl'>
+    <div className='content content--infos px-lg md:p-sm'>
+      <div className='grid md:grid-cols-2 gap-y-lg md:gap-y-sm mb-xl md:mb-0'>
+        <div className='text text-lg-alt--mobile md:text-xl'>
           <PortableText
             value={_localizeField(input.text)}
             components={portableTextComponents}
           />
         </div>
         <div>
-          <div className='grid md:grid-cols-2'>
+          <div className='grid md:grid-cols-2 text-md-alt md:text-md gap-y-lg md:gap-y-sm'>
             <div className=''>
               <h2 className='sans mb-1e'>
                 {_localizeField(input.contacts?.title)}

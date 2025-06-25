@@ -16,10 +16,14 @@ const CardsProject = ({ input }: Props) => {
     <div className='cards--project mb-lg'>
       <LinkTransition href={_linkResolver(input)}>
         <h2>{_localizeField(input.title)}</h2>
-        <div className={clsx("grid grid--8", `len-${input.media?.length}`)}>
+        <div
+          className={clsx(
+            "md:grid md:grid-cols-8",
+            `len-${input.media?.length}`
+          )}>
           <div
             className={clsx(
-              "col-start-2 col-end-8 flex flex-wrap justify-center gap-sm"
+              "md:col-start-2 md:col-end-8 flex flex-wrap justify-center gap-sm"
             )}>
             {input.media?.map((item, i) => (
               <Fragment key={item._key}>

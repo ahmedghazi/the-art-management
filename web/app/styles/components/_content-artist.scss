@@ -1,3 +1,5 @@
+@use "../variables";
+
 [data-template="is-artist"] {
   .template {
     // padding-top: 196px;
@@ -34,6 +36,14 @@
       .grid--8 {
         // justify-content: center;
         // gap: var(--gutter);
+        // &.len-2 .project-media {
+        //   width: calc((var(--col-1-8) * 2) + var(--gutter));
+        // }
+        // .project-media {
+        //   width: var(--col-1-8);
+        // }
+      }
+      .grid {
         &.len-2 .project-media {
           width: calc((var(--col-1-8) * 2) + var(--gutter));
         }
@@ -46,6 +56,20 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+  }
+
+  @media all and (max-width: variables.$md) {
+    .template {
+      padding-top: 152px;
+    }
+    .content--artist {
+      h2 {
+        font-size: var(--text-sm);
+        &.sans {
+          font-size: var(--text-md);
+        }
+      }
     }
   }
 }

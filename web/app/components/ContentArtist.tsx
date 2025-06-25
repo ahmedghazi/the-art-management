@@ -1,5 +1,5 @@
 "use client";
-import React, { Fragment } from "react";
+import React, { Fragment, useRef } from "react";
 import { Artist } from "../types/schema";
 import { PortableText } from "next-sanity";
 import portableTextComponents from "../sanity-api/portableTextComponents";
@@ -9,6 +9,8 @@ import CardsProject from "./CardsProject";
 import clsx from "clsx";
 import ProjectEdition from "./ProjectEdition";
 import BackToTop from "./ui/BackToTop";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 type Props = {
   input: Artist;
@@ -18,13 +20,26 @@ const ContentArtist = ({ input }: Props) => {
   const { name, text, editions, projectsTagged, projects, links } = input;
   console.log(input);
   const hasEditions = editions && editions?.length > 0;
+
+  const ref = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      gsap.from("h2, .card, .project-media", {
+        opacity: 0,
+        y: "10",
+        stagger: 0.1,
+      });
+    },
+    { scope: ref }
+  );
   return (
-    <div className='content--artist px-sm'>
+    <div className='content--artist px-sm' ref={ref}>
       {text && (
         <section className='presentation mb-2xl'>
-          <div className='grid grid--8'>
+          <div className='md:grid md:grid-cols-8'>
             <div className='md:col-start-3 md:col-span-4'>
-              <div className='text md:text-lg'>
+              <div className='text text-md-alt md:text-lg'>
                 <PortableText
                   value={_localizeField(text)}
                   components={portableTextComponents}
@@ -53,7 +68,7 @@ const ContentArtist = ({ input }: Props) => {
           )}>
           {/* <pre>{JSON.stringify(projectsTagged, null, 2)}</pre> */}
           {projectsTagged?.map((item, i) => (
-            <div key={i} className={"w-2/8"}>
+            <div key={i} className={"w-1/2 md:w-2/8"}>
               {item && item.slug && <CardProject input={item} />}
             </div>
           ))}

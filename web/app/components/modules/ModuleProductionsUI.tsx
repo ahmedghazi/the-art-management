@@ -21,7 +21,7 @@ const ModuleProductionsUI = ({ input }: Props) => {
   return (
     <section className='module module--productions-ui px-sm'>
       <div className='intro grid md:grid-cols-2 gap-sm'>
-        <div className='text md:text-xl'>
+        <div className='text text-lg-alt--mobile md:text-xl'>
           <PortableText
             value={_localizeField(input.text)}
             components={portableTextComponents}

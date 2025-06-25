@@ -40,7 +40,7 @@ export default async function RootLayout({
                 <main>
                   {children}
                   <div className='visually-hidden grid-sample px-sm'>
-                    <div className='grid grid--8'>
+                    <div className='grid grid-cols-4 md:grid-cols-8'>
                       <div className='item'></div>
                     </div>
                   </div>

@@ -18,14 +18,14 @@ const Header = ({ settings }: Props) => {
       : "next";
   return (
     <header>
-      <div className='grid md: grid-cols-3 '>
+      <div className='grid grid-cols-2 md:grid-cols-3 '>
         <div className='site-name'>
           <LinkTransition direction={direction} href='/'>
             <Logo />
           </LinkTransition>
         </div>
         <nav>
-          <ul className='flex justify-center sans gap-sm'>
+          <ul className='flex justify-end md:justify-center sans gap-sm'>
             {settings.navPrimary?.map((item, index) => (
               <li key={index}>
                 <LinkTransition

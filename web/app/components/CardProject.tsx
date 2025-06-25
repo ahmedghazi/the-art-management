@@ -12,7 +12,7 @@ type Props = {
 
 const CardProject = ({ input }: Props) => {
   return (
-    <div className='card--project mb-lg'>
+    <div className='card card--project mb-lg'>
       <LinkTransition href={_linkResolver(input)}>
         <Figure
           asset={input.imageCover?.asset}

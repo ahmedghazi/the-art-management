@@ -18,7 +18,7 @@ const CardArtist = ({ input }: Props) => {
             <Figure asset={input.imageCover.asset} />
           )}
         </div>
-        <h3 className='sans '>{input.name}</h3>
+        <h3 className='sans text-sm-alt--mobile md:text-md'>{input.name}</h3>
       </LinkTransition>
     </div>
   );

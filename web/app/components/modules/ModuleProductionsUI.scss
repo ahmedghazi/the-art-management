@@ -1,3 +1,5 @@
+@use "../../styles/variables";
+
 [data-slug="production"] {
   &,
   .template {
@@ -36,5 +38,9 @@
   .footer {
     text-align: center;
     margin: 93px 0;
+  }
+
+  @media all and (max-width: variables.$md) {
+    padding-top: 126px;
   }
 }

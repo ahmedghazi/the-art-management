@@ -38,18 +38,30 @@ const ContentProject = ({ input }: Props) => {
       {media && <ProjectSlider input={media} />}
 
       <div className='footer'>
-        {artist && (
-          <div className='artist'>
-            <span className='label mr-sm'>Artist page</span>
+        <div className='grid grid-cols-4 items-end'>
+          {artist && (
+            <div className='artist'>
+              <span className='label mr-sm'>Artist page</span>
+              <LinkTransition
+                direction='prev'
+                href={_linkResolver(artist)}
+                className='sans hidden-sm'>
+                {artist.name}
+              </LinkTransition>
+            </div>
+          )}
+          <div className='col-center col-span-2'>
+            <h1 className='text-lg-alt--mobile md:text-xl'>
+              {_localizeField(currentProject)}
+            </h1>
             <LinkTransition
               direction='prev'
               href={_linkResolver(artist)}
-              className='sans'>
-              {artist.name}
+              className='sans sm-only'>
+              {artist?.name}
             </LinkTransition>
           </div>
-        )}
-        <h1>{_localizeField(currentProject)}</h1>
+        </div>
       </div>
 
       {isBottom && nextProject && (

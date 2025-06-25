@@ -50,19 +50,12 @@ const ProjectSlider = ({ input }: Props) => {
   useEffect(() => {
     const currentItem = input[currentIndex];
     if (currentItem && currentItem.project) {
-      // console.log(currentItem);
-      // publishSync("CURRENT_SLIDER_PROJECT", currentItem.project.title);
       publish("CURRENT_SLIDER_PROJECT", currentItem.project.title);
     }
   }, [currentIndex, input]);
 
-  // const _handleCursor = (e: MouseEvent) => {
-  //   // console.log(e);
-  //   if (!cursorRef.current) return;
-  //   cursorRef.current.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-  // };
-
   const _scrollToNext = () => {
+    if (input.length <= 1) return;
     const scroller = _getScrollParent(container.current);
     if (!scroller) return;
     const nextY = (currentIndex + 1) * window.innerHeight;
@@ -105,11 +98,6 @@ const ProjectSlider = ({ input }: Props) => {
             </li>
           ))}
       </ul>
-      {/* <div className='cursor sans text-sm' ref={cursorRef}>
-        <div className='inner'>
-          {currentIndex + 1}/{length}
-        </div>
-      </div> */}
 
       <CursorCustom>
         <div className='inner sans text-sm'>

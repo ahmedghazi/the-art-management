@@ -1,3 +1,5 @@
+@use "../variables";
+
 .splash {
   position: fixed;
   inset: 0;
@@ -16,5 +18,11 @@
   }
   &.is-collapsed {
     transform: translateY(-100%);
+  }
+
+  @media all and (max-width: variables.$md) {
+    .logo {
+      width: 100%;
+    }
   }
 }

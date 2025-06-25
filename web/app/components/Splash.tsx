@@ -18,7 +18,6 @@ const Splash = ({ settings }: Props) => {
   const [collapse, setCollapse] = useState(false);
   const { userHistory } = usePageContext();
   const canDisplay = userHistory.length === 1 && pathname === "/";
-  // console.log(userHistory);
 
   useEffect(() => {
     if (!canDisplay) return;
@@ -26,8 +25,6 @@ const Splash = ({ settings }: Props) => {
       setCollapse(true);
     }, 2000);
   }, []);
-
-  // if (!canDisplay) return null;
 
   return (
     <div
@@ -39,7 +36,7 @@ const Splash = ({ settings }: Props) => {
       onMouseMove={() => setCollapse(true)}
       onClick={() => setCollapse(true)}>
       <div className='flex'>
-        <div className='text text-lg md:text-2xl'>
+        <div className='text text-lg-alt--mobile md:text-2xl'>
           <PortableText
             value={_localizeField(settings.description)}
             components={portableTextComponents}

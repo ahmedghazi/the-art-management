@@ -21,10 +21,11 @@ const Splash = ({ settings }: Props) => {
 
   useEffect(() => {
     if (!canDisplay) return;
+    console.log("here");
     setTimeout(() => {
       setCollapse(true);
     }, 2000);
-  }, []);
+  }, [canDisplay]);
 
   return (
     <div

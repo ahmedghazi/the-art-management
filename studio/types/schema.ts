@@ -565,9 +565,28 @@ export type Figure = {
   /**
    * Image — `image`
    *
-   * jpg, 1400px de large, 72dpi
+   * jpg, 2000px de large, 72dpi
    */
   image?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+
+    /**
+     * Alt Description — `string`
+     *
+     *
+     */
+    alt?: string;
+  };
+
+  /**
+   * Image Mobile — `image`
+   *
+   * jpg, 1400px de large, 72dpi
+   */
+  imageMobile?: {
     _type: "image";
     asset: SanityReference<SanityImageAsset>;
     crop?: SanityImageCrop;

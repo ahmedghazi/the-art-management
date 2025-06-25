@@ -14,11 +14,15 @@
       padding: 73px;
       height: calc(var(--vh) * 100) !important;
       scroll-snap-align: start;
-      img {
+      img,
+      .mux-video-player {
         height: 100% !important;
         max-height: calc(var(--vh) * 100 - 146px);
         width: 100%;
         object-fit: contain;
+        mux-player {
+          height: 100% !important;
+        }
       }
     }
 

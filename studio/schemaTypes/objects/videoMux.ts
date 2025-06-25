@@ -37,6 +37,7 @@ export default {
       name: 'placeholder',
       type: 'image',
       description: 'Image placeholder',
+      validation: (Rule) => Rule.required().warning('Image placeholder est obligatoire'),
     }),
   ],
 

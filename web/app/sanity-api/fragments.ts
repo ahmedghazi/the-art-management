@@ -58,7 +58,17 @@ export const media = `
 		}
 	},
 	_type == 'videoMux' => {
-		...
+		...,
+		videoDesktop{
+			asset->{
+				playbackId,
+				assetId,
+				filename,
+			}
+		},
+		placeholder{
+			asset->
+		}
 	}
 `;
 

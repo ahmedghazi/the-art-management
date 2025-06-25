@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@mux/mux-player-react": "^3.5.0",
     "@sanity-image/url-builder": "^1.0.0",
     "clsx": "^2.1.1",
     "cookies-next": "^6.0.0",

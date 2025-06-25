@@ -4,6 +4,7 @@ import FigureComponent from "./ui/Figure";
 import { _getScrollParent } from "../sanity-api/utils";
 import { publish, publishSync } from "pubsub-js";
 import CursorCustom from "./ui/CursorCustom";
+import MuxVideoPlayer from "./ui/MuxVideoPlayer";
 
 type Props = {
   input: Array<SanityKeyed<Figure> | SanityKeyed<VideoMux>>;
@@ -43,7 +44,6 @@ const ProjectSlider = ({ input }: Props) => {
     }
     return () => {
       observer.disconnect();
-      // window.removeEventListener("mousemove", _handleCursor);
     };
   }, []);
 
@@ -55,6 +55,7 @@ const ProjectSlider = ({ input }: Props) => {
   }, [currentIndex, input]);
 
   const _scrollToNext = () => {
+    return;
     if (input.length <= 1) return;
     const scroller = _getScrollParent(container.current);
     if (!scroller) return;
@@ -70,14 +71,25 @@ const ProjectSlider = ({ input }: Props) => {
       item.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
-
+  console.log(input);
   return (
     <section className='project-media'>
       <div className='inner' ref={container} onClick={_scrollToNext}>
         {input?.map((item, i) => (
-          <div key={item._key} className='project-media--item' data-index={i}>
+          <div
+            key={item._key}
+            className='project-media--item sans'
+            data-index={i}>
             {item._type === "figure" && (
               <FigureComponent asset={item.image?.asset} />
+            )}
+            {item._type === "videoMux" && (
+              <MuxVideoPlayer
+                playbackId={item.videoDesktop.asset.playbackId}
+                title={item.videoDesktop.title}
+                withAudio={true}
+                placeholder={item.placeholder?.asset?.url}
+              />
             )}
           </div>
         ))}
@@ -93,6 +105,9 @@ const ProjectSlider = ({ input }: Props) => {
               <button onClick={() => _scrollTo(i)}>
                 {item._type === "figure" && (
                   <FigureComponent asset={item.image?.asset} width={65} />
+                )}
+                {item._type === "videoMux" && (
+                  <FigureComponent asset={item.placeholder?.asset} />
                 )}
               </button>
             </li>

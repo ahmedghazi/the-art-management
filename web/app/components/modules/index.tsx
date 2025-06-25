@@ -1,12 +1,9 @@
 "use client";
 import React from "react";
-import ModuleTextsUI from "./ModuleTextsUI";
 import ModuleVideoUI from "./ModuleVideoUI";
-import ModuleTextUI from "./ModuleTextUI";
 import ModuleProjectsUI from "./ModuleProjectsUI";
 import ModuleProjectsFeaturedUI from "./ModuleProjectsFeaturedUI";
 import ModuleArtistsGridUI from "./ModuleArtistsGridUI";
-import ModuleEditionsUI from "./ModuleEditionsUI";
 import ModuleProductionsUI from "./ModuleProductionsUI";
 import { ModulesList } from "@/app/types/extra-types";
 import "./index.scss";
@@ -21,15 +18,10 @@ const Modules = ({ modules }: ModulesList) => {
           return <ModuleProjectsFeaturedUI key={module._key} input={module} />;
         case "artistsGridUI":
           return <ModuleArtistsGridUI key={module._key} input={module} />;
-        case "editionsUI":
-          return <ModuleEditionsUI key={module._key} input={module} />;
+
         case "videoUI":
           return <ModuleVideoUI key={module._key} input={module} />;
-        case "textUI":
-          return <ModuleTextUI key={module._key} input={module} />;
 
-        case "textsUI":
-          return <ModuleTextsUI key={module._key} input={module} />;
         case "productionsUI":
           return <ModuleProductionsUI key={module._key} input={module} />;
         default:

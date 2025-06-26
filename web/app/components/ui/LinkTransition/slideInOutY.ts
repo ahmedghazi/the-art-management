@@ -1,9 +1,9 @@
 export const slideInOutY = (direction: string, duration: number = 10000) => {
   // const easing = "cubic-bezier(0.87, 0, 0.13, 1)";
   const easing = "ease";
-  const y: number = direction === "s" ? 10 : -10;
+  const y: number = direction === "n" ? 10 : -10;
   const clipPath =
-    direction === "s"
+    direction === "n"
       ? "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)"
       : "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)";
 

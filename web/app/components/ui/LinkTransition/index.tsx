@@ -25,7 +25,7 @@ const LinkTransition = ({
   children,
   className = "",
   direction = "s",
-  duration = 2000,
+  duration = 500,
   ...props
 }: LinkTransitionProps) => {
   const router = useTransitionRouter();

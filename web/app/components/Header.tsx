@@ -14,8 +14,8 @@ const Header = ({ settings }: Props) => {
   const pathname = usePathname();
   const direction =
     pathname.indexOf("artist/") > -1 || pathname.indexOf("project/") > -1
-      ? "prev"
-      : "next";
+      ? "n"
+      : "s";
   return (
     <header>
       <div className='grid grid-cols-2 md:grid-cols-3 '>

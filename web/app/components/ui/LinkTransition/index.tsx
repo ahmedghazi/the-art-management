@@ -5,6 +5,7 @@ import { useTransitionRouter } from "next-view-transitions";
 import { slideInOut } from "./transition";
 import "./index.scss";
 import { slideInOutV2 } from "./slideInOutV2";
+import { slideInOutY } from "./slideInOutY";
 // import { slideInOutV2 } from "./slideInOutV2";
 
 function sleep(ms: number): Promise<void> {
@@ -23,8 +24,8 @@ const LinkTransition = ({
   href,
   children,
   className = "",
-  direction = "next",
-  duration = 500,
+  direction = "s",
+  duration = 2000,
   ...props
 }: LinkTransitionProps) => {
   const router = useTransitionRouter();
@@ -42,7 +43,7 @@ const LinkTransition = ({
       router.push(href, {
         onTransitionReady: () => {
           console.log("onTransitionReady");
-          slideInOutV2(direction, duration);
+          slideInOutY(direction, duration);
           setTimeout(() => {
             document.body.classList.remove("is-transition");
           }, duration);

@@ -383,6 +383,13 @@ export interface Artist extends SanityDocument {
   };
 
   /**
+   * Video cover — `videoMux`
+   *
+   * Visible on liste pages, project cards (largeur 1400px)
+   */
+  videoCover?: VideoMux;
+
+  /**
    * Texte — `localeBlockContent`
    *
    *
@@ -741,7 +748,7 @@ export type ProjectFeatured = {
    *
    *
    */
-  media?: Array<SanityKeyed<Figure>>;
+  media?: Array<SanityKeyed<Figure> | SanityKeyed<VideoMux>>;
 };
 
 export type ArtistsGrid = {

@@ -37,7 +37,7 @@ const MuxVideoPlayer = ({
             title={title || ""}
             placeholder={placeholder}
           />
-          <MuxControls withAudio={withAudio} />
+          {withAudio && <MuxControls withAudio={withAudio} />}
         </MuxVideoContextProvider>
       )}
     </div>

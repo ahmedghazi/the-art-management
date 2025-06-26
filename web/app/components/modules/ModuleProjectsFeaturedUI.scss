@@ -83,5 +83,9 @@
       height: calc(var(--vh) * 100) !important;
       object-fit: cover;
     }
+    .mux-video-player,
+    mux-player {
+      height: calc(var(--vh) * 100) !important;
+    }
   }
 }

@@ -32,6 +32,9 @@ export default defineField({
         {
           type: 'figure',
         },
+        {
+          type: 'videoMux',
+        },
       ],
     }),
   ],

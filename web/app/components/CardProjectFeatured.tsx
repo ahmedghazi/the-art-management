@@ -6,6 +6,7 @@ import clsx from "clsx";
 import useOnScreen from "../hooks/useOnScreen";
 import { publish } from "pubsub-js";
 import LinkTransition from "./ui/LinkTransition";
+import MuxVideoPlayer from "./ui/MuxVideoPlayer";
 
 type Props = {
   input: SanityKeyed<ProjectFeatured>;
@@ -20,7 +21,7 @@ const CardProjectFeatured = ({ input }: Props) => {
       publish("ARTIST_ON_SCREEN", input._key);
     }
   }, [isOnScreen, input._key]);
-
+  console.log(input);
   return (
     <article
       className='card card--project_featured snap-start'
@@ -29,15 +30,32 @@ const CardProjectFeatured = ({ input }: Props) => {
       <LinkTransition href={_linkResolver(input.project)}>
         <div className={clsx("grid gap-0", `grid-cols-${input.media?.length}`)}>
           {input.media?.map((item, i) => (
-            <div key={item.image?.asset._id}>
-              {item.image && (
+            <div key={i}>
+              {item._type === "figure" && (
                 <Figure
-                  asset={item.image.asset}
+                  asset={item.image?.asset}
                   width={2000}
                   alt={_localizeField(input.title) || ""}
                 />
               )}
+              {item._type === "videoMux" && (
+                <MuxVideoPlayer
+                  playbackId={item.videoDesktop.asset.playbackId}
+                  title={item.videoDesktop.title}
+                  withAudio={false}
+                  placeholder={item.placeholder?.asset?.url}
+                />
+              )}
             </div>
+            // <div key={item.image?.asset._id}>
+            //   {item.image && (
+            //     <Figure
+            //       asset={item.image.asset}
+            //       width={2000}
+            //       alt={_localizeField(input.title) || ""}
+            //     />
+            //   )}
+            // </div>
           ))}
         </div>
       </LinkTransition>

@@ -16,6 +16,19 @@ export const figure = `
 		slug
 	}
 `;
+export const videoMux = `
+	...,
+	videoDesktop{
+		asset->{
+			playbackId,
+			assetId,
+			filename,
+		}
+	},
+	placeholder{
+		asset->
+	}
+`;
 
 export const blockContent = `
 	...,
@@ -58,17 +71,7 @@ export const media = `
 		}
 	},
 	_type == 'videoMux' => {
-		...,
-		videoDesktop{
-			asset->{
-				playbackId,
-				assetId,
-				filename,
-			}
-		},
-		placeholder{
-			asset->
-		}
+		${videoMux}
 	}
 `;
 
@@ -102,10 +105,7 @@ const projectsFeaturedUI = `
 				}
 			},
 			media[]{
-				_type,
-				image{
-					asset->
-				}
+				${media}
 			}
 		}
 	}

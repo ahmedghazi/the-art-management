@@ -6,9 +6,9 @@ type Props = {
 };
 
 const MuxControls = ({ withAudio }: Props) => {
+  const { settings, setSettings } = useMuxVideo();
   const [muted, setMuted] = useState<boolean>(true);
   const [play, setPlay] = useState<boolean>(false);
-  const { settings, setSettings } = useMuxVideo();
 
   useEffect(() => {
     // setSettings({

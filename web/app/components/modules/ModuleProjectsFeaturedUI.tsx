@@ -4,6 +4,7 @@ import CardProjectFeatured from "../CardProjectFeatured";
 import { subscribe, unsubscribe } from "pubsub-js";
 import { _localizeField, _slugify } from "@/app/sanity-api/utils";
 import "./ModuleProjectsFeaturedUI.scss";
+import BackToTop from "../ui/BackToTop";
 
 interface Props {
   input: ProjectsFeaturedUI;
@@ -69,6 +70,7 @@ const ModuleProjectsFeaturedUI = ({ input }: Props) => {
               </li>
             ))}
         </ul>
+        <BackToTop />
       </nav>
     </section>
   );

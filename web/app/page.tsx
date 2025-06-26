@@ -42,7 +42,7 @@ const HomePage = async function Page() {
     <div
       className='template template--home'
       data-template='home'
-      data-slug={data.slug?.current}>
+      data-slug={"/"}>
       <ContentModulaire input={data} />
     </div>
   );

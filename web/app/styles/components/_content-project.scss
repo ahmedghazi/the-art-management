@@ -1,6 +1,8 @@
 @use "../variables";
+@use "../mixins";
 
 [data-template="is-project"] {
+  @include mixins.debugOutline(var(--spacing-sm));
 }
 .content--project {
   &.is-bottom {
@@ -73,6 +75,7 @@
     justify-content: space-between;
     align-items: center;
     padding: var(--spacing-sm);
+    transform: translateY(0.07em);
     .grid {
       width: 100%;
     }
@@ -89,7 +92,7 @@
       // transform: translateX(-50%);
       // font-size: var(--text-xl);
       text-align: center;
-      transform: translateY(0.05rem);
+      transform: translateY(0.12rem);
       &,
       * {
         line-height: 1;

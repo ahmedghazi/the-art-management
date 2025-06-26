@@ -3,6 +3,9 @@
 
 [data-template="is-project"] {
   @include mixins.debugOutline(var(--spacing-sm));
+  .template {
+    scroll-snap-type: y mandatory;
+  }
 }
 .content--project {
   &.is-bottom {

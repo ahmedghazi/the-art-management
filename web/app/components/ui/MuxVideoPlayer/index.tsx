@@ -31,7 +31,7 @@ const MuxVideoPlayer = ({
   return (
     <div className={`mux-video-player  ${ready ? "is-ready" : ""}`}>
       {ready && (
-        <MuxVideoContextProvider>
+        <MuxVideoContextProvider withAudio={withAudio}>
           <MuxPlayer
             playbackId={playbackId}
             title={title || ""}

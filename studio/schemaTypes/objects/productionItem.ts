@@ -25,6 +25,11 @@ export default defineType({
       type: 'image',
       title: 'Image',
     }),
+    defineField({
+      name: 'video',
+      type: 'videoMux',
+      title: 'Video',
+    }),
   ],
 
   preview: {

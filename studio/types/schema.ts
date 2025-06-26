@@ -659,6 +659,13 @@ export type ProductionItem = {
     crop?: SanityImageCrop;
     hotspot?: SanityImageHotspot;
   };
+
+  /**
+   * Video — `videoMux`
+   *
+   *
+   */
+  video?: VideoMux;
 };
 
 export type VideoMux = {

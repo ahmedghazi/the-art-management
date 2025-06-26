@@ -11,6 +11,7 @@ type Props = {
 
 const MuxPlayer = ({ playbackId, title, placeholder }: Props) => {
   const { settings } = useMuxVideo();
+  console.log(settings);
   return (
     <>
       <MuxPlayerReact

@@ -176,6 +176,9 @@ const productionsUI = `
 			...,
 			image{
 				asset->
+			},
+			video{
+				${videoMux}
 			}
 		},
 		featured{

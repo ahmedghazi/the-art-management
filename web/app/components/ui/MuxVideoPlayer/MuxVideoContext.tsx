@@ -42,8 +42,9 @@ export const MuxVideoContextProvider = ({
     useState<VideoSettingsProps>(initialVideoSettings);
 
   useEffect(() => {
+    console.log(withAudio);
     if (withAudio) {
-      setSettings(initialVideoSettings);
+      // setSettings(initialVideoSettings);
     } else {
       setSettings(initialVideoSettingsAutoplay);
     }

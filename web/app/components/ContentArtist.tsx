@@ -119,19 +119,21 @@ const ContentArtist = ({ input }: Props) => {
           </Fragment>
         ))}
       </section>
-      <section className='links py-lg mb-2xl'>
-        {/* <pre>{JSON.stringify(links, null, 2)}</pre> */}
-        <ul>
-          {links?.map((item, i) => (
-            <li key={i} className='sans'>
-              {item._type === "linkExternal"}
-              <a href={item.link} target='_blank' rel='noopener noreferrer'>
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
+      {links && (
+        <section className='links py-lg mb-2xl'>
+          <ul>
+            {links?.map((item, i) => (
+              <li key={i} className='sans'>
+                {item._type === "linkExternal"}
+                <a href={item.link} target='_blank' rel='noopener noreferrer'>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+      <div></div>
       <BackToTop />
     </div>
   );

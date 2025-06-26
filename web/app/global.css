@@ -8,6 +8,7 @@
   --color-hover: #333;
   --color-accent: #ff0000;
   --color-red: #ff0000;
+  --color-gray: #b1b1b1;
 
   --font-primary: "ABCOtto-Light", serif;
   --font-secondary: "ABCMonumentGrotesk-Bold", "Helvetica Neue",
@@ -70,6 +71,7 @@
   --color-hover: var(--color-hover);
   --color-accent: var(--color-accent);
   --color-red: var(--color-red);
+  --color-gray: var(--color-gray);
 
   --font-primary: var(--font-primary);
   --font-secondary: var(--font-secondary);

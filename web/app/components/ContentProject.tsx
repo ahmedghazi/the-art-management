@@ -41,12 +41,12 @@ const ContentProject = ({ input }: Props) => {
         <div className='grid grid-cols-4 items-end'>
           {artist && (
             <div className='artist'>
-              <span className='label mr-sm'>Artist page</span>
               <LinkTransition
                 direction='prev'
                 href={_linkResolver(artist)}
-                className='sans hidden-sm'>
-                {artist.name}
+                className='sans- '>
+                <span className='label mr-sm text-gray'>Artist page</span>
+                <span className='sans hidden-sm'>{artist.name}</span>
               </LinkTransition>
             </div>
           )}

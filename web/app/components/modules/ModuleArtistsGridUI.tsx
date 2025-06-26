@@ -24,7 +24,6 @@ const ModuleArtistsGridUI = ({ input }: Props) => {
     },
     { scope: ref }
   );
-
   return (
     <section className='module module--artists-grid-ui' ref={ref}>
       <div className='grid grid-cols-2 md:grid-cols-8 gap-y-lg'>

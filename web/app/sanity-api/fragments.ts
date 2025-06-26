@@ -126,6 +126,9 @@ const artistsGridUI = `
 				imageCover{
 					asset->
 				},
+				videoCover{
+					${videoMux}
+				}
 			}
 		}
 	}

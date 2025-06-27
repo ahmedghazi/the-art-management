@@ -12,12 +12,12 @@ const Credits = (props: Props) => {
 
   return (
     <div
-      className='credits flex items-baseline uppercase gap-[39px] serif'
+      className='credits flex items-baseline uppercase gap-[39px] sans'
       // onMouseEnter={() => setOpen(true)}
       // onMouseLeave={() => setOpen(false)}
     >
       <div
-        className='label cursor-pointer sans'
+        className='label cursor-pointer '
         onClick={() => setOpen(!open)}
         // onMouseEnter={() => setOpen(!open)}
       >
@@ -35,15 +35,16 @@ const Credits = (props: Props) => {
           <a
             href={designer.url}
             target='_blank'
-            className='p-0 mr-1e-'
+            className='p-0 mr-1e- text-gray'
             rel='noopener noreferrer'>
             {designer.name}
-          </a>{" "}
-          <span className='sans'>Code</span>{" "}
+          </a>
+          {", "}
+          <span className=''>Code</span>{" "}
           <a
             href='https://ahmedghazi.com/'
             target='_blank'
-            className='p-0'
+            className='p-0 text-gray'
             rel='noopener noreferrer'>
             AHMED GHAZI
           </a>

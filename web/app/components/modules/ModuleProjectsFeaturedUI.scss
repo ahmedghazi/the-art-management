@@ -95,10 +95,22 @@
     nav#nav-artists {
       overflow: hidden;
       pointer-events: none;
-      li {
+      li.nav--artist {
         pointer-events: all;
         display: inline-block;
         width: auto;
+        .project {
+          // background-color: red;
+          line-height: 1;
+        }
+      }
+    }
+    .card.card--project_featured {
+      .grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        & > div:nth-child(2) {
+          display: none;
+        }
       }
     }
   }

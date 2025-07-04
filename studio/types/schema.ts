@@ -142,7 +142,7 @@ export interface Settings extends SanityDocument {
   /**
    * Description — `localeBlockContent`
    *
-   *
+   * Text visible sur la landing page
    */
   description?: LocaleBlockContent;
 
@@ -424,13 +424,6 @@ export type LocaleString = {
    *
    */
   en?: string;
-
-  /**
-   * Français — `string`
-   *
-   *
-   */
-  fr?: string;
 };
 
 export type LocaleBlockContent = {
@@ -441,13 +434,6 @@ export type LocaleBlockContent = {
    *
    */
   en?: BlockContent;
-
-  /**
-   * Français — `blockContent`
-   *
-   *
-   */
-  fr?: BlockContent;
 };
 
 export type BlockContent = Array<

@@ -38,6 +38,7 @@ export default defineType({
       title: 'Sub Title',
       description: "Displayed in artist page's tagged projects",
       group: 'editorial',
+      hidden: true,
     }),
     defineField({
       name: 'slug',
@@ -74,6 +75,7 @@ export default defineType({
       title: 'Image cover',
       description: 'Visible on liste pages, project cards (largeur 1400px)',
       group: 'editorial',
+      hidden: true,
     }),
 
     defineField({

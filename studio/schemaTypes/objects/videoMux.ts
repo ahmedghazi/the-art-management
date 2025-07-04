@@ -16,28 +16,33 @@ export default {
       name: 'withAudio',
       type: 'boolean',
       title: "Avec de l'audio",
-      description: "Avec de l'audio",
-    }),
-    defineField({
-      name: 'videoDesktop',
-      type: 'mux.video',
-    }),
-    defineField({
-      name: 'videoMobile',
-      type: 'mux.video',
-    }),
-    defineField({
-      name: 'project',
-      title: 'project',
-      type: 'reference',
-      description: 'will replace the title in the project page',
-      to: [{type: 'project'}],
+      description: "Avec de l'audio = avec les boutons play/pause, mute",
     }),
     defineField({
       name: 'placeholder',
       type: 'image',
       description: 'Image placeholder',
       validation: (Rule) => Rule.required().warning('Image placeholder est obligatoire'),
+    }),
+    defineField({
+      name: 'videoDesktop',
+      type: 'mux.video',
+    }),
+    // defineField({
+    //   name: 'videoMobile',
+    //   type: 'mux.video',
+    // }),
+    defineField({
+      name: 'project',
+      title: 'project',
+      type: 'reference',
+      description: 'will replace the title in the project page',
+      to: [{type: 'project'}],
+      hidden: ({document, parent, value}) => {
+        console.log(document)
+        console.log(parent)
+        return document?._type !== 'project'
+      },
     }),
   ],
 

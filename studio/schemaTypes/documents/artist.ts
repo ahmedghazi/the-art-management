@@ -50,6 +50,7 @@ export default defineType({
       type: 'reference',
       to: [{type: 'tag'}],
       group: 'editorial',
+      description: "Visible sur la page d'acceuil",
     }),
     defineField({
       name: 'imageCover',
@@ -79,6 +80,7 @@ export default defineType({
       type: 'array',
       of: [{type: 'edition'}],
       group: 'editorial',
+      description: 'optionnel',
     }),
 
     defineField({
@@ -86,6 +88,8 @@ export default defineType({
       type: 'array',
       of: [{type: 'reference', to: [{type: 'project'}]}],
       group: 'editorial',
+      description:
+        'Commisions, Personnal, Beauty, ..., créer un projet qui contient des media en fonction',
     }),
 
     defineField({
@@ -95,6 +99,7 @@ export default defineType({
       type: 'array',
       of: [{type: 'reference', to: [{type: 'project'}]}],
       group: 'editorial',
+      description: 'Image ou Video',
     }),
 
     defineField({
@@ -103,6 +108,7 @@ export default defineType({
       type: 'array',
       of: [{type: 'linkExternal'}],
       group: 'editorial',
+      description: "Liens vers le site de l'artiste, ses réseaux, ...",
     }),
   ],
 

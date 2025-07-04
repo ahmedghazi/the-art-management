@@ -26,15 +26,8 @@ export default defineType({
     },
   ],
   fields: [
-    // defineField({
-    //   name: 'seo',
-    //   title: 'Defauly SEO',
-    //   type: 'seo',
-    //   group: 'seo',
-    // }),
     defineField({
       name: 'siteName',
-      // title: "Nom du site",
       type: 'string',
       group: 'header',
     }),
@@ -42,18 +35,10 @@ export default defineType({
       name: 'description',
       title: 'Description',
       type: 'localeBlockContent',
-      // description: "Visible en page d'accueil header",
+      description: 'Text visible sur la landing page',
       group: 'header',
     }),
-    // defineField({
-    //   name: 'logo',
-    //   title: 'Logo',
-    //   type: 'image',
-    //   options: {
-    //     accept: 'image/svg+xml',
-    //   },
-    //   group: 'header',
-    // }),
+
     defineField({
       name: 'navPrimary',
       title: 'Naviguation Primary',

@@ -32,8 +32,11 @@ export default defineField({
         hotspot: true,
       },
       fields: [
-        // {name: 'title', title: 'Title', type: 'string'},
-        {name: 'alt', title: 'Alt Description', type: 'string'},
+        {
+          name: 'alt',
+          title: "Alt Description (pour le référencent et l'accessibilité",
+          type: 'string',
+        },
         // {name: 'attribution', title: 'Attribution', type: 'string'}
       ],
     }),
@@ -50,6 +53,7 @@ export default defineField({
         {name: 'alt', title: 'Alt Description', type: 'string'},
         // {name: 'attribution', title: 'Attribution', type: 'string'}
       ],
+      hidden: true,
     }),
     defineField({
       name: 'project',
@@ -57,6 +61,7 @@ export default defineField({
       type: 'reference',
       description: 'will replace the title in the project page',
       to: [{type: 'project'}],
+      hidden: ({document}) => document?._type !== 'project',
     }),
   ],
 })

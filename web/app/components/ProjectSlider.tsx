@@ -5,16 +5,21 @@ import { _getScrollParent } from "../sanity-api/utils";
 import { publish, publishSync } from "pubsub-js";
 import CursorCustom from "./ui/CursorCustom";
 import MuxVideoPlayer from "./ui/MuxVideoPlayer";
+import useDeviceDetect from "../hooks/useDeviceDetect";
+import { useScroll } from "../hooks/useScroll";
 
 type Props = {
   input: Array<SanityKeyed<Figure> | SanityKeyed<VideoMux>>;
+  onEnd: () => void;
 };
 
-const ProjectSlider = ({ input }: Props) => {
+const ProjectSlider = ({ input, onEnd }: Props) => {
   const [currentIndex, setCurrentIndex] = useState<number>(-1);
   const length = input?.length || 0;
   const container = useRef<HTMLDivElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
+  const { isMobile } = useDeviceDetect();
+  const { isBottom } = useScroll();
 
   useEffect(() => {
     // window.addEventListener("mousemove", _handleCursor);
@@ -54,6 +59,26 @@ const ProjectSlider = ({ input }: Props) => {
     }
   }, [currentIndex, input]);
 
+  useEffect(() => {
+    console.log({ isBottom, isMobile });
+    if (isBottom && isMobile) {
+      container.current?.addEventListener("touchstart", _navigateToNextProject);
+    }
+
+    return () => {
+      if (isBottom && isMobile) {
+        container.current?.removeEventListener(
+          "touchstart",
+          _navigateToNextProject
+        );
+      }
+    };
+  }, [isBottom, isMobile]);
+
+  const _navigateToNextProject = () => {
+    onEnd();
+  };
+
   const _scrollToNext = () => {
     // return;
     if (input.length <= 1) return;
@@ -71,7 +96,7 @@ const ProjectSlider = ({ input }: Props) => {
       item.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
-  console.log(input);
+  // console.log(input);
   return (
     <section className='project-media'>
       <div className='inner' ref={container} onClick={_scrollToNext}>

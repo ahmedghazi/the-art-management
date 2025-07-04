@@ -10,14 +10,14 @@ const MuxControls = ({ withAudio }: Props) => {
   const [muted, setMuted] = useState<boolean>(true);
   const [play, setPlay] = useState<boolean>(false);
 
-  useEffect(() => {
-    // setSettings({
-    //   ...settings,
-    //   muted: !withAudio,
-    //   loop: !withAudio,
-    // });
-    console.log(settings);
-  }, [settings]);
+  // useEffect(() => {
+  //   // setSettings({
+  //   //   ...settings,
+  //   //   muted: !withAudio,
+  //   //   loop: !withAudio,
+  //   // });
+  //   // console.log(settings);
+  // }, [settings]);
 
   useEffect(() => {
     setSettings({

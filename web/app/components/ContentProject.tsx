@@ -10,6 +10,7 @@ import CursorCustom from "./ui/CursorCustom";
 import clsx from "clsx";
 import { subscribe, unsubscribe } from "pubsub-js";
 import LinkTransition from "./ui/LinkTransition";
+import { useRouter } from "next/navigation";
 type Props = {
   input: Project;
 };
@@ -20,6 +21,7 @@ const ContentProject = ({ input }: Props) => {
   const [currentProject, setCurrentProject] = useState<LocaleString | string>(
     subTitle ? subTitle : title || ""
   );
+  const router = useRouter();
 
   useEffect(() => {
     const subscription = subscribe("CURRENT_SLIDER_PROJECT", (e, data) => {
@@ -30,12 +32,17 @@ const ContentProject = ({ input }: Props) => {
     };
   }, []);
 
+  const _navigateToNextProject = () => {
+    const nextProjectUrl = _linkResolver(nextProject);
+    router.push(nextProjectUrl);
+  };
+
   return (
     <div
       className={clsx("content--project", {
         "is-bottom": isBottom && nextProject !== null,
       })}>
-      {media && <ProjectSlider input={media} />}
+      {media && <ProjectSlider input={media} onEnd={_navigateToNextProject} />}
 
       <div className='footer'>
         <div className='grid grid-cols-4 items-end'>

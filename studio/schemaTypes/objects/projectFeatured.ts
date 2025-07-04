@@ -37,6 +37,12 @@ export default defineField({
         },
       ],
     }),
+    defineField({
+      name: 'headerDark',
+      type: 'boolean',
+      description:
+        'Passer le header (logo, nav) en noir si ce projet a un visuel clair. Default est false (blanc)',
+    }),
   ],
   preview: {
     select: {

@@ -28,3 +28,9 @@ body[data-template="is-home"] header {
     fill: white;
   }
 }
+body.header-dark header {
+  color: black;
+  svg path {
+    fill: black;
+  }
+}

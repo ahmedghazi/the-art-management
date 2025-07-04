@@ -19,6 +19,9 @@ const CardProjectFeatured = ({ input }: Props) => {
   useEffect(() => {
     if (isOnScreen) {
       publish("ARTIST_ON_SCREEN", input._key);
+      document.body.classList.toggle("header-dark", input.headerDark);
+    } else {
+      document.body.classList.remove("header-dark");
     }
   }, [isOnScreen, input._key]);
   console.log(input);

@@ -357,7 +357,7 @@ export interface Artist extends SanityDocument {
   /**
    * tag — `reference`
    *
-   *
+   * Visible sur la page d'acceuil
    */
   tag?: SanityReference<Tag>;
 
@@ -390,28 +390,28 @@ export interface Artist extends SanityDocument {
   /**
    * Editions — `array`
    *
-   *
+   * optionnel
    */
   editions?: Array<SanityKeyed<Edition>>;
 
   /**
    * projectsTagged — `array`
    *
-   *
+   * Commisions, Personnal, Beauty, ..., créer un projet qui contient des media en fonction
    */
   projectsTagged?: Array<SanityKeyedReference<Project>>;
 
   /**
    * Projets — `array`
    *
-   *
+   * Image ou Video
    */
   projects?: Array<SanityKeyedReference<Project>>;
 
   /**
    * Links — `array`
    *
-   *
+   * Liens vers le site de l'artiste, ses réseaux, ...
    */
   links?: Array<SanityKeyed<LinkExternal>>;
 }
@@ -567,7 +567,7 @@ export type Figure = {
     hotspot?: SanityImageHotspot;
 
     /**
-     * Alt Description — `string`
+     * Alt Description (pour le référencent et l'accessibilité — `string`
      *
      *
      */
@@ -666,30 +666,9 @@ export type VideoMux = {
   /**
    * Avec de l'audio — `boolean`
    *
-   * Avec de l'audio
+   * Avec de l'audio = avec les boutons play/pause, mute
    */
   withAudio?: boolean;
-
-  /**
-   * videoDesktop — `mux.video`
-   *
-   *
-   */
-  videoDesktop?: MuxVideo;
-
-  /**
-   * videoMobile — `mux.video`
-   *
-   *
-   */
-  videoMobile?: MuxVideo;
-
-  /**
-   * project — `reference`
-   *
-   * will replace the title in the project page
-   */
-  project?: SanityReference<Project>;
 
   /**
    * placeholder — `image`
@@ -702,6 +681,20 @@ export type VideoMux = {
     crop?: SanityImageCrop;
     hotspot?: SanityImageHotspot;
   };
+
+  /**
+   * videoDesktop — `mux.video`
+   *
+   *
+   */
+  videoDesktop?: MuxVideo;
+
+  /**
+   * project — `reference`
+   *
+   * will replace the title in the project page
+   */
+  project?: SanityReference<Project>;
 };
 
 export type ProjectFeatured = {
@@ -733,6 +726,13 @@ export type ProjectFeatured = {
    *
    */
   media?: Array<SanityKeyed<Figure> | SanityKeyed<VideoMux>>;
+
+  /**
+   * headerDark — `boolean`
+   *
+   * Passer le header (logo, nav) en noir si ce projet a un visuel clair. Default est false (blanc)
+   */
+  headerDark?: boolean;
 };
 
 export type ArtistsGrid = {

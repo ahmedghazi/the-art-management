@@ -93,6 +93,7 @@ const projectsFeaturedUI = `
 			_type,
 			slug,
 			title,
+			headerDark,
 			project->{
 				_type,
 				slug,

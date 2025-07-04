@@ -12,7 +12,7 @@ const Credits = (props: Props) => {
 
   return (
     <div
-      className='credits flex items-baseline uppercase gap-[39px] sans'
+      className='credits flex items-baseline uppercase- gap-[39px] sans'
       // onMouseEnter={() => setOpen(true)}
       // onMouseLeave={() => setOpen(false)}
     >
@@ -21,7 +21,7 @@ const Credits = (props: Props) => {
         onClick={() => setOpen(!open)}
         // onMouseEnter={() => setOpen(!open)}
       >
-        CREDITS
+        Credits
       </div>
 
       {open && (

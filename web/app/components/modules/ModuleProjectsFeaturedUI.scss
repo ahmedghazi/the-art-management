@@ -1,3 +1,5 @@
+@use "../../styles/variables";
+
 // ModuleProjectsFeaturedUI styles
 .module--projects-featured-ui {
   position: relative;
@@ -86,6 +88,18 @@
     .mux-video-player,
     mux-player {
       height: calc(var(--vh) * 100) !important;
+    }
+  }
+
+  @media all and (max-width: variables.$md) {
+    nav#nav-artists {
+      overflow: hidden;
+      pointer-events: none;
+      li {
+        pointer-events: all;
+        display: inline-block;
+        width: auto;
+      }
     }
   }
 }

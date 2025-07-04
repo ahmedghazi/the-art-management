@@ -55,12 +55,12 @@ const ProjectSlider = ({ input }: Props) => {
   }, [currentIndex, input]);
 
   const _scrollToNext = () => {
-    return;
-    // if (input.length <= 1) return;
-    // const scroller = _getScrollParent(container.current);
-    // if (!scroller) return;
-    // const nextY = (currentIndex + 1) * window.innerHeight;
-    // scroller.scroll(0, nextY);
+    // return;
+    if (input.length <= 1) return;
+    const scroller = _getScrollParent(container.current);
+    if (!scroller) return;
+    const nextY = (currentIndex + 1) * window.innerHeight;
+    scroller.scroll(0, nextY);
   };
 
   const _scrollTo = (index: number) => {

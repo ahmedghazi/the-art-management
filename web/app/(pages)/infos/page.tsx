@@ -17,7 +17,7 @@ import React from "react";
 export async function generateMetadata(): Promise<Metadata> {
   const data = await getInfos();
   return {
-    title: `${data?.seo?.metaTitle || data?.title?.fr || ""}`,
+    title: `${data?.seo?.metaTitle || data?.title?.en || ""}`,
     description: data?.seo?.metaDescription,
     openGraph: {
       images: data?.seo?.metaImage?.asset.url || website.image,

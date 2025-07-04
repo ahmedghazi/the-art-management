@@ -23,9 +23,11 @@ const ContentInfos = ({ input }: Props) => {
         <div>
           <div className='grid md:grid-cols-2 text-md-alt md:text-md gap-y-lg md:gap-y-sm'>
             <div className=''>
-              <h2 className='sans mb-1e'>
-                {_localizeField(input.contacts?.title)}
-              </h2>
+              {input.contacts?.title && (
+                <h2 className='sans mb-1e'>
+                  {_localizeField(input.contacts?.title)}
+                </h2>
+              )}
               <ul>
                 {input.contacts?.items?.map((contact, i) => (
                   <li key={i} className='mb-1e'>
@@ -44,7 +46,7 @@ const ContentInfos = ({ input }: Props) => {
               <ul className=''>
                 {input.infosItems?.map((info, i) => (
                   <li key={i} className='item mb-2e'>
-                    <div className='key sans'>{info.key}</div>
+                    {info.key && <div className='key sans'>{info.key}</div>}
                     <div className='val'>
                       <PortableText
                         value={_localizeField(info.val)}

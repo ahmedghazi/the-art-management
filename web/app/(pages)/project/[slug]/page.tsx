@@ -25,7 +25,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const data = await getProject(slug);
   return {
-    title: `${data?.seo?.metaTitle || data?.title?.fr || ""}`,
+    title: `${data?.seo?.metaTitle || data?.title?.en || ""}`,
     description: data?.seo?.metaDescription,
     openGraph: {
       images: data?.seo?.metaImage?.asset.url || website.image,

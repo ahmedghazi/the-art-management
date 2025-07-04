@@ -10,7 +10,7 @@ import ContentModulaire from "./components/ContentModulaire";
 export async function generateMetadata(): Promise<Metadata> {
   const data = await getHome();
   return {
-    title: `${data?.seo?.metaTitle || data?.title?.fr || ""}`,
+    title: `${data?.seo?.metaTitle || data?.title?.en || ""}`,
     description: data?.seo?.metaDescription,
     openGraph: {
       images: data?.seo?.metaImage?.asset.url || website.image,

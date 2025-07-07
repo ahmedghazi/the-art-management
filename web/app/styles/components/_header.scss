@@ -16,6 +16,14 @@ header {
     width: 80px;
   }
 
+  nav {
+    a {
+      transition: color 0.2s var(--cubic);
+      &.not-active {
+        color: #b1b1b1;
+      }
+    }
+  }
   @media all and (max-width: variables.$md) {
     padding: var(--spacing-sm);
     font-size: var(--text-md);

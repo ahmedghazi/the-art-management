@@ -34,7 +34,7 @@ const MuxControls = ({ withAudio }: Props) => {
   }, [muted]);
 
   return (
-    <div className='controls'>
+    <div className='controls sans'>
       <button
         className='btn btn--play'
         onClick={() => setPlay(!play)}

@@ -17,7 +17,7 @@ const ProjectSlider = ({ input, onEnd }: Props) => {
   const [currentIndex, setCurrentIndex] = useState<number>(-1);
   const length = input?.length || 0;
   const container = useRef<HTMLDivElement>(null);
-  const cursorRef = useRef<HTMLDivElement>(null);
+  const dock = useRef<HTMLUListElement>(null);
   const { isMobile } = useDeviceDetect();
   const { isBottom } = useScroll();
 
@@ -96,6 +96,10 @@ const ProjectSlider = ({ input, onEnd }: Props) => {
       item.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
+
+  const _toggleDock = () => {
+    dock.current?.classList.toggle("is-active");
+  };
   // console.log(input);
   return (
     <section className='project-media'>
@@ -119,31 +123,41 @@ const ProjectSlider = ({ input, onEnd }: Props) => {
           </div>
         ))}
       </div>
+      <div className='pager-dock sans'>
+        <ul className='dock' ref={dock}>
+          {input.length > 1 &&
+            input?.map((item, i) => (
+              <li
+                key={item._key}
+                data-index={i}
+                className={currentIndex === i ? "is-active" : ""}>
+                <button onClick={() => _scrollTo(i)}>
+                  {item._type === "figure" && (
+                    <FigureComponent asset={item.image?.asset} width={65} />
+                  )}
+                  {item._type === "videoMux" && (
+                    <FigureComponent asset={item.placeholder?.asset} />
+                  )}
+                </button>
+              </li>
+            ))}
+        </ul>
+        {isMobile && (
+          <div className='pager'>
+            <button onClick={_toggleDock}>
+              {currentIndex + 1}/{length} <span className='arrow'>↑</span>
+            </button>
+          </div>
+        )}
+      </div>
 
-      <ul className='dock'>
-        {input.length > 1 &&
-          input?.map((item, i) => (
-            <li
-              key={item._key}
-              data-index={i}
-              className={currentIndex === i ? "is-active" : ""}>
-              <button onClick={() => _scrollTo(i)}>
-                {item._type === "figure" && (
-                  <FigureComponent asset={item.image?.asset} width={65} />
-                )}
-                {item._type === "videoMux" && (
-                  <FigureComponent asset={item.placeholder?.asset} />
-                )}
-              </button>
-            </li>
-          ))}
-      </ul>
-
-      <CursorCustom>
-        <div className='inner sans text-sm'>
-          {currentIndex + 1}/{length}
-        </div>
-      </CursorCustom>
+      {!isMobile && (
+        <CursorCustom>
+          <div className='inner sans text-sm'>
+            {currentIndex + 1}/{length}
+          </div>
+        </CursorCustom>
+      )}
     </section>
   );
 };

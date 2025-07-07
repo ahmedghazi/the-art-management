@@ -30,15 +30,20 @@
         }
       }
     }
-
-    .dock {
+    .pager-dock {
       position: fixed;
       bottom: 0;
       right: 0;
       padding: var(--spacing-sm);
       z-index: 50;
+    }
+    .dock {
+      position: absolute;
+      bottom: 0;
+      right: 0;
       display: flex;
       flex-direction: column;
+      width: 65px;
       li {
         vertical-align: top;
         transition: opacity 0.2s var(--cubic);
@@ -103,8 +108,34 @@
       .project-media--item {
         padding: 84px 0;
       }
+      .pager-dock {
+        // position: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: var(--spacing-sm);
+      }
+      .pager {
+        span {
+          color: var(--color-secondary);
+          display: inline-block;
+        }
+      }
       .dock {
         padding-right: 0;
+        transform: translateY(100%);
+        opacity: 0;
+        transition: transform 0.2s var(--cubic), opacity 0.2s var(--cubic);
+        pointer-events: none;
+        position: initial;
+        &.is-active {
+          transform: translateY(0);
+          opacity: 1;
+          pointer-events: all;
+          & + .pager span {
+            transform: rotate(180deg);
+          }
+        }
       }
     }
     .footer {

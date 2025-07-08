@@ -42,3 +42,10 @@ body.header-dark header {
     fill: black;
   }
 }
+
+body[data-slug="production"].header-dark header {
+  color: white;
+  svg path {
+    fill: white;
+  }
+}

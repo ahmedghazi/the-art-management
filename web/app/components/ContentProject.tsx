@@ -37,6 +37,7 @@ const ContentProject = ({ input }: Props) => {
     router.push(nextProjectUrl);
   };
 
+  // console.log({ isBottom });
   return (
     <div
       className={clsx("content--project", {
@@ -71,7 +72,7 @@ const ContentProject = ({ input }: Props) => {
         </div>
       </div>
 
-      {isBottom && nextProject && (
+      {nextProject && (
         <CursorCustom>
           <LinkTransition
             href={_linkResolver(nextProject)}

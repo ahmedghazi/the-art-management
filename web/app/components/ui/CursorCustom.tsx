@@ -2,9 +2,11 @@ import React, { CSSProperties, useEffect, useRef } from "react";
 
 type Props = {
   children: React.ReactNode;
+  visible?: boolean;
 };
 
-const CursorCustom = ({ children }: Props) => {
+const CursorCustom = ({ children, visible = true }: Props) => {
+  // console.log({ visible });
   const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,6 +30,7 @@ const CursorCustom = ({ children }: Props) => {
     top: 0,
     left: 0,
     willChange: "transform",
+    opacity: visible ? 1 : 0,
     // color: "white",
     pointerEvents: "none",
     // mixBlendMode: "difference",

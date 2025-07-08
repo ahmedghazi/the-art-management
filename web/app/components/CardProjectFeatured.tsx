@@ -24,7 +24,7 @@ const CardProjectFeatured = ({ input }: Props) => {
       document.body.classList.remove("header-dark");
     }
   }, [isOnScreen, input._key]);
-  console.log(input);
+
   return (
     <article
       className='card card--project_featured snap-start'

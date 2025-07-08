@@ -46,7 +46,7 @@ export default async function RootLayout({
                   </div>
                   {/* <DesignSystem /> */}
                 </main>
-                <Footer settings={settings} />
+                {/* <Footer settings={settings} /> */}
                 <Splash settings={settings} />
 
                 {isEnabled && (

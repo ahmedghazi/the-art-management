@@ -690,6 +690,13 @@ export type VideoMux = {
   videoDesktop?: MuxVideo;
 
   /**
+   * videoMobile — `mux.video`
+   *
+   *
+   */
+  videoMobile?: MuxVideo;
+
+  /**
    * project — `reference`
    *
    * will replace the title in the project page

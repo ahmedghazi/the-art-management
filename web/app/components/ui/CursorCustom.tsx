@@ -28,9 +28,9 @@ const CursorCustom = ({ children }: Props) => {
     top: 0,
     left: 0,
     willChange: "transform",
-    color: "white",
+    // color: "white",
     pointerEvents: "none",
-    mixBlendMode: "difference",
+    // mixBlendMode: "difference",
   };
   const styleInner: CSSProperties = {
     transform: "translate(-50%, -50%)",

@@ -5,6 +5,7 @@ import { subscribe, unsubscribe } from "pubsub-js";
 import { _localizeField, _slugify } from "@/app/sanity-api/utils";
 import "./ModuleProjectsFeaturedUI.scss";
 import BackToTop from "../ui/BackToTop";
+import { useScroll } from "@/app/hooks/useScroll";
 
 interface Props {
   input: ProjectsFeaturedUI;
@@ -12,6 +13,7 @@ interface Props {
 
 const ModuleProjectsFeaturedUI = ({ input }: Props) => {
   const { title, items = [] } = input;
+  const { isBottom } = useScroll();
 
   useEffect(() => {
     const token = subscribe("ARTIST_ON_SCREEN", (e, _id: string) => {
@@ -70,7 +72,7 @@ const ModuleProjectsFeaturedUI = ({ input }: Props) => {
               </li>
             ))}
         </ul>
-        <BackToTop />
+        {isBottom && <BackToTop />}
       </nav>
     </section>
   );

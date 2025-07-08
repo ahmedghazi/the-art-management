@@ -1,5 +1,16 @@
 @use "../../styles/variables";
 
+.header-dark .module--projects-featured-ui nav#nav-artists {
+  color: black;
+  li.nav--artist {
+    color: black;
+    &:hover,
+    &.is-active {
+      color: red;
+    }
+  }
+}
+
 .module--projects-featured-ui {
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);

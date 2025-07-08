@@ -28,10 +28,10 @@ export default {
       name: 'videoDesktop',
       type: 'mux.video',
     }),
-    // defineField({
-    //   name: 'videoMobile',
-    //   type: 'mux.video',
-    // }),
+    defineField({
+      name: 'videoMobile',
+      type: 'mux.video',
+    }),
     defineField({
       name: 'project',
       title: 'project',

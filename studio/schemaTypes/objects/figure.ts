@@ -53,7 +53,7 @@ export default defineField({
         {name: 'alt', title: 'Alt Description', type: 'string'},
         // {name: 'attribution', title: 'Attribution', type: 'string'}
       ],
-      hidden: true,
+      // hidden: true,
     }),
     defineField({
       name: 'project',

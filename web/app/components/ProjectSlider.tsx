@@ -151,7 +151,7 @@ const ProjectSlider = ({ input, onEnd }: Props) => {
         )}
       </div>
 
-      {!isMobile && (
+      {!isMobile && !isBottom && (
         <CursorCustom>
           <div className='inner sans text-sm'>
             {currentIndex + 1}/{length}

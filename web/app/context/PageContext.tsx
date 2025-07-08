@@ -36,6 +36,7 @@ export const PageContextProvider = (props: PageContextProps) => {
     _handlePageTemplate();
     _format();
     setUserHistory((prev) => [...prev, pathname]);
+    document.body.classList.remove("is-dark");
   }, [pathname]);
 
   useEffect(() => {

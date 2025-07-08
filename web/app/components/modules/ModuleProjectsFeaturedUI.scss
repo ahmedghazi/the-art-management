@@ -3,10 +3,10 @@
 .header-dark .module--projects-featured-ui nav#nav-artists {
   color: black;
   li.nav--artist {
-    color: black;
+    // color: black;
     &:hover,
     &.is-active {
-      color: red;
+      color: black;
     }
   }
 }

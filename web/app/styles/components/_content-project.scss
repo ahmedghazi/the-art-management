@@ -2,7 +2,7 @@
 @use "../mixins";
 
 [data-template="is-project"] {
-  //@include mixins.debugOutline(var(--spacing-sm));
+  // @include mixins.debugOutline(var(--spacing-sm));
   .template {
     scroll-snap-type: y mandatory;
   }
@@ -150,6 +150,9 @@
       }
     }
     .footer {
+      .col-center {
+        transform: none;
+      }
       h1 {
         display: block;
       }

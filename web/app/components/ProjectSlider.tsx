@@ -22,14 +22,12 @@ const ProjectSlider = ({ input, onEnd }: Props) => {
   const { isBottom } = useScroll();
 
   useEffect(() => {
-    // window.addEventListener("mousemove", _handleCursor);
-    // console.log(container.current);
     const container = document.querySelector("main");
     const target = document.querySelectorAll(".project-media--item");
     const options: IntersectionObserverInit = {
       root: container,
       rootMargin: "0px",
-      threshold: 1.0,
+      threshold: 0.6,
     };
 
     const callback = (entries: any, observer: any) => {
@@ -103,7 +101,8 @@ const ProjectSlider = ({ input, onEnd }: Props) => {
   // console.log(input);
   return (
     <section className='project-media'>
-      <div className='inner' ref={container} onClick={_scrollToNext}>
+      <div className='bg' onClick={_scrollToNext}></div>
+      <div className='inner' ref={container}>
         {input?.map((item, i) => (
           <div
             key={item._key}

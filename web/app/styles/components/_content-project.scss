@@ -15,6 +15,16 @@
   }
   .project-media {
     cursor: none;
+    .bg {
+      position: absolute;
+      inset: 0;
+      // background-color: red;
+      z-index: 0;
+    }
+    .inner {
+      z-index: 1;
+      position: relative;
+    }
     .project-media--item {
       padding: 73px;
       height: calc(var(--vh) * 100) !important;

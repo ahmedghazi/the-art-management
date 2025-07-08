@@ -116,6 +116,7 @@
         gap: var(--spacing-sm);
       }
       .pager {
+        transform: translateY(0.3em);
         span {
           color: var(--color-secondary);
           display: inline-block;

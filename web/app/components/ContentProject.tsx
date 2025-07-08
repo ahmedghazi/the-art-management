@@ -58,7 +58,7 @@ const ContentProject = ({ input }: Props) => {
             </div>
           )}
           <div className='col-center col-span-2'>
-            <h1 className='text-sm-alt--mobile md:text-xl'>
+            <h1 className='text-lg-alt--mobile md:text-xl'>
               {_localizeField(currentProject)}
             </h1>
             <LinkTransition

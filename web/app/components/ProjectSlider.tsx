@@ -143,7 +143,7 @@ const ProjectSlider = ({ input, onEnd }: Props) => {
             ))}
         </ul>
         {isMobile && (
-          <div className='pager'>
+          <div className='pager text-xs'>
             <button onClick={_toggleDock}>
               {currentIndex + 1}/{length} <span className='arrow'>↑</span>
             </button>

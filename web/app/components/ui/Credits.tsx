@@ -46,7 +46,7 @@ const Credits = (props: Props) => {
             target='_blank'
             className='p-0 text-gray'
             rel='noopener noreferrer'>
-            AHMED GHAZI
+            Ahmed Ghazi
           </a>
         </div>
       )}

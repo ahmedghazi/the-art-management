@@ -8,6 +8,7 @@
   }
 }
 .content--project {
+  &.len-1,
   &.is-bottom {
     .project-media .cursor {
       opacity: 0;
@@ -19,6 +20,7 @@
   & > .cursor-custom {
     visibility: hidden;
   }
+
   .project-media {
     cursor: none;
     .bg {

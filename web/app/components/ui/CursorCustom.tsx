@@ -34,7 +34,12 @@ const CursorCustom = ({ children, visible = true }: Props) => {
     //loop through target parent node and if a parent has this class stop project-media--item sans relative
     while (target.parentNode) {
       const parent = target.parentNode as HTMLElement;
-      if (parent.classList.contains("project-media--item")) {
+      // console.log(parent);
+      if (
+        parent &&
+        parent.classList &&
+        parent.classList.contains("project-media--item__videoMux")
+      ) {
         targetParentInWhiteListe = true;
         break;
       }

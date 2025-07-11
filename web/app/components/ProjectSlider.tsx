@@ -104,7 +104,7 @@ const ProjectSlider = ({ input, onEnd }: Props) => {
 
   // console.log(input);
   return (
-    <section className='project-media'>
+    <section className={clsx("project-media")}>
       <div className='bg' onClick={_scrollToNext}></div>
       <div className='inner' ref={container}>
         {input?.map((item, i) => (

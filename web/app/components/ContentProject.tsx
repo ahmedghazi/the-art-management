@@ -44,6 +44,7 @@ const ContentProject = ({ input }: Props) => {
     <div
       className={clsx("content--project", {
         "is-bottom": isBottom && nextProject !== null,
+        [`len-${media?.length}`]: media?.length,
       })}>
       {media && <ProjectSlider input={media} onEnd={_navigateToNextProject} />}
 

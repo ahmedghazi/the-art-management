@@ -14,8 +14,8 @@ const CardArtist = ({ input }: Props) => {
   // console.log(input);
   const [isHovered, setIsHovered] = React.useState(false);
   const { name, imageCover, videoCover } = input;
+
   useEffect(() => {
-    // console.log(isHovered);
     const siblings = Array.from(document.querySelectorAll(".card--artist"));
     const notThis = siblings.filter(
       (sibling) => sibling.id !== input.slug?.current
@@ -24,7 +24,8 @@ const CardArtist = ({ input }: Props) => {
       const _el = el as HTMLElement;
       _el.style.opacity = isHovered ? "0.4" : "1";
     });
-  }, [isHovered]);
+  }, [isHovered, input.slug]);
+
   return (
     <div
       id={input.slug?.current}

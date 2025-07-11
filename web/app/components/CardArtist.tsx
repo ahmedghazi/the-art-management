@@ -1,5 +1,5 @@
 import { Link } from "next-view-transitions";
-import React from "react";
+import React, { useEffect } from "react";
 import { _linkResolver } from "../sanity-api/utils";
 import { Artist } from "../types/schema";
 import Figure from "./ui/Figure";
@@ -11,10 +11,26 @@ type Props = {
 };
 
 const CardArtist = ({ input }: Props) => {
-  console.log(input);
+  // console.log(input);
+  const [isHovered, setIsHovered] = React.useState(false);
   const { name, imageCover, videoCover } = input;
+  useEffect(() => {
+    // console.log(isHovered);
+    const siblings = Array.from(document.querySelectorAll(".card--artist"));
+    const notThis = siblings.filter(
+      (sibling) => sibling.id !== input.slug?.current
+    );
+    notThis.forEach((el) => {
+      const _el = el as HTMLElement;
+      _el.style.opacity = isHovered ? "0.4" : "1";
+    });
+  }, [isHovered]);
   return (
-    <div className='card--artist'>
+    <div
+      id={input.slug?.current}
+      className='card--artist transition-opacity'
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}>
       <LinkTransition href={_linkResolver(input)}>
         <div className='image'>
           {!videoCover && imageCover && imageCover.asset && (

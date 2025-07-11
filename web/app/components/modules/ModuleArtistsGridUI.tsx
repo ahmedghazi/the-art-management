@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import clsx from "clsx";
 import { PortableText } from "@portabletext/react";
 import Figure from "../ui/Figure";
@@ -18,6 +18,7 @@ const ModuleArtistsGridUI = ({ input }: Props) => {
   const { items = [] } = input;
   const ref = useRef<HTMLElement>(null);
 
+  useEffect(() => {}, []);
   useGSAP(
     () => {
       gsap.from("h2, li", { opacity: 0, y: "10", stagger: 0.1 });

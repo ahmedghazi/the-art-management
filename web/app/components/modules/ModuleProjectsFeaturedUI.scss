@@ -82,7 +82,9 @@
   .back-to-top {
     font-size: var(--text-sm);
 
-    position: initial;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
     span {
       display: inline-block;
     }

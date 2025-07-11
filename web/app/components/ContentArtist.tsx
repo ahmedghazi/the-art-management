@@ -98,21 +98,22 @@ const ContentArtist = ({ input }: Props) => {
 
       {hasEditions && <h2 className='sans'>Works</h2>}
 
-      <section className='projects projects-tagged mb-2xl'>
-        <div
-          className={clsx(
-            "flex justify-center gap-sm",
-            `len-${projectsTagged?.length}`
-          )}>
-          {/* <pre>{JSON.stringify(projectsTagged, null, 2)}</pre> */}
-          {projectsTagged?.map((item, i) => (
-            <div key={i} className={"w-1/2 md:w-2/8"}>
-              {item && item.slug && <CardProject input={item} />}
-            </div>
-          ))}
-        </div>
-      </section>
-      <section className='projects projects mb-2xl'>
+      {projectsTagged && projectsTagged?.length > 0 && (
+        <section className='projects projects-tagged mb-2xl'>
+          <div
+            className={clsx(
+              "flex justify-center gap-sm",
+              `len-${projectsTagged?.length}`
+            )}>
+            {projectsTagged?.map((item, i) => (
+              <div key={i} className={"w-1/2 md:w-2/8"}>
+                {item && item.slug && <CardProject input={item} />}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+      <section className={clsx("projects projects mb-2xl")}>
         {projects?.map((item, i) => (
           <Fragment key={i}>
             {item && item.slug && <CardsProject input={item} />}

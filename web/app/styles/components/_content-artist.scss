@@ -55,6 +55,7 @@
       }
       .grid,
       .md\:grid {
+        &.len-1 .project-media,
         &.len-2 .project-media {
           width: calc((var(--col-1-8) * 2) + var(--gutter));
         }

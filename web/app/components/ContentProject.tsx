@@ -21,6 +21,8 @@ const ContentProject = ({ input }: Props) => {
   const [currentProject, setCurrentProject] = useState<LocaleString | string>(
     subTitle ? subTitle : title || ""
   );
+  const isSingleMediaProject: boolean = media?.length === 1;
+
   const router = useRouter();
 
   useEffect(() => {

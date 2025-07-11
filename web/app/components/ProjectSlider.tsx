@@ -17,6 +17,7 @@ type Props = {
 const ProjectSlider = ({ input, onEnd }: Props) => {
   const [currentIndex, setCurrentIndex] = useState<number>(-1);
   const length = input?.length || 0;
+  const isSingleMediaProject: boolean = input.length === 1;
   const container = useRef<HTMLDivElement>(null);
   const dock = useRef<HTMLUListElement>(null);
   const { isMobile } = useDeviceDetect();
@@ -155,7 +156,7 @@ const ProjectSlider = ({ input, onEnd }: Props) => {
         )}
       </div>
 
-      {!isMobile && !isBottom && (
+      {!isMobile && !isBottom && !isSingleMediaProject && (
         <CursorCustom>
           <div className='inner sans text-sm'>
             {currentIndex + 1}/{length}

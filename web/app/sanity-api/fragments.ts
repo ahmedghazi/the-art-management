@@ -66,6 +66,9 @@ export const media = `
 		image{
 			asset->
 		},
+		imageMobile{
+			asset->
+		},
 		project->{
 		  title,
 		}

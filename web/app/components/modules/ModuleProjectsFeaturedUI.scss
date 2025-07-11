@@ -27,6 +27,7 @@
     overflow-y: auto;
     ul {
       margin: calc(var(--vh) * 50) 0 116px;
+      margin: calc(var(--vh) * 50) 0;
       display: flex;
       flex-direction: column;
     }

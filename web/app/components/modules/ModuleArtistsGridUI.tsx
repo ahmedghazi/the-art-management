@@ -5,7 +5,7 @@ import Figure from "../ui/Figure";
 import { ArtistsGridUI } from "@/app/types/schema";
 import CardArtist from "../CardArtist";
 import AOS from "../ui/AOS";
-import { _localizeField } from "@/app/sanity-api/utils";
+import { _getScrollParent, _localizeField } from "@/app/sanity-api/utils";
 import "./ModuleArtistsGridUI.scss";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -18,7 +18,13 @@ const ModuleArtistsGridUI = ({ input }: Props) => {
   const { items = [] } = input;
   const ref = useRef<HTMLElement>(null);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const scroller = _getScrollParent(ref.current);
+    if (scroller) {
+      console.log(scroller);
+      scroller.scroll(0, 0);
+    }
+  }, []);
   useGSAP(
     () => {
       gsap.from("h2, li", { opacity: 0, y: "10", stagger: 0.1 });

@@ -7,6 +7,7 @@ import useOnScreen from "../hooks/useOnScreen";
 import { publish } from "pubsub-js";
 import LinkTransition from "./ui/LinkTransition";
 import MuxVideoPlayer from "./ui/MuxVideoPlayer";
+import useDeviceDetect from "../hooks/useDeviceDetect";
 
 type Props = {
   input: SanityKeyed<ProjectFeatured>;
@@ -15,6 +16,7 @@ type Props = {
 const CardProjectFeatured = ({ input }: Props) => {
   const ref = useRef<HTMLElement>(null);
   const isOnScreen = useOnScreen(ref);
+  const { isMobile } = useDeviceDetect();
 
   useEffect(() => {
     if (isOnScreen) {
@@ -36,8 +38,12 @@ const CardProjectFeatured = ({ input }: Props) => {
             <div key={i}>
               {item._type === "figure" && (
                 <Figure
-                  asset={item.image?.asset}
-                  width={2000}
+                  asset={
+                    isMobile && item.imageMobile
+                      ? item.imageMobile.asset
+                      : item.image?.asset
+                  }
+                  width={isMobile ? 1000 : 2000}
                   alt={_localizeField(input.title) || ""}
                 />
               )}

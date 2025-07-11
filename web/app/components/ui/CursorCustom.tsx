@@ -22,6 +22,36 @@ const CursorCustom = ({ children, visible = true }: Props) => {
     const isOutOfBound = e.clientY < 45 || e.clientY > window.innerHeight - 45;
     cursorRef.current.style.opacity = isOutOfBound ? `0` : `1`;
     cursorRef.current.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+
+    if (e.target) {
+      _handleWhiteList(e.target as HTMLElement);
+    }
+  };
+
+  const _handleWhiteList = (target: HTMLElement) => {
+    if (!cursorRef || !cursorRef.current) return;
+    let targetParentInWhiteListe = false;
+    //loop through target parent node and if a parent has this class stop project-media--item sans relative
+    while (target.parentNode) {
+      const parent = target.parentNode as HTMLElement;
+      if (parent.classList.contains("project-media--item")) {
+        targetParentInWhiteListe = true;
+        break;
+      }
+      target = parent;
+    }
+    if (targetParentInWhiteListe) {
+      cursorRef.current.style.opacity = `0`;
+    }
+    // return (
+    //   target.tagName.toLowerCase() === "a" ||
+    //   target.tagName.toLowerCase() === "button" ||
+    //   target.classList.contains("button") ||
+    //   target.classList.contains("btn") ||
+    //   target.classList.contains("pointer") ||
+    //   target.classList.contains("cursor-pointer") ||
+    //   target.role === "button"
+    // );
   };
 
   const style: CSSProperties = {

@@ -8,6 +8,7 @@ import MuxVideoPlayer from "./ui/MuxVideoPlayer";
 import useDeviceDetect from "../hooks/useDeviceDetect";
 import { useScroll } from "../hooks/useScroll";
 import Link from "next/link";
+import clsx from "clsx";
 
 type Props = {
   input: Array<SanityKeyed<Figure> | SanityKeyed<VideoMux>>;
@@ -100,6 +101,7 @@ const ProjectSlider = ({ input, onEnd }: Props) => {
   const _toggleDock = () => {
     dock.current?.classList.toggle("is-active");
   };
+
   // console.log(input);
   return (
     <section className='project-media'>
@@ -108,8 +110,18 @@ const ProjectSlider = ({ input, onEnd }: Props) => {
         {input?.map((item, i) => (
           <div
             key={item._key}
-            className='project-media--item sans'
-            data-index={i}>
+            className={clsx(
+              "project-media--item sans relative",
+              `project-media--item__${item._type}`
+            )}
+            data-index={i}
+            onMouseOver={(e) => ((e.target as HTMLElement).style.zIndex = "50")}
+            onMouseEnter={(e) =>
+              ((e.target as HTMLElement).style.zIndex = "50")
+            }
+            onMouseLeave={(e) =>
+              ((e.target as HTMLElement).style.zIndex = "0")
+            }>
             {item._type === "figure" && (
               <FigureComponent asset={item.image?.asset} />
             )}

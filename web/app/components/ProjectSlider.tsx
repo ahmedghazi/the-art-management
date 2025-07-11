@@ -7,6 +7,7 @@ import CursorCustom from "./ui/CursorCustom";
 import MuxVideoPlayer from "./ui/MuxVideoPlayer";
 import useDeviceDetect from "../hooks/useDeviceDetect";
 import { useScroll } from "../hooks/useScroll";
+import Link from "next/link";
 
 type Props = {
   input: Array<SanityKeyed<Figure> | SanityKeyed<VideoMux>>;
@@ -143,9 +144,13 @@ const ProjectSlider = ({ input, onEnd }: Props) => {
         </ul>
         {isMobile && (
           <div className='pager text-xs'>
-            <button onClick={_toggleDock}>
-              {currentIndex + 1}/{length} <span className='arrow'>↑</span>
-            </button>
+            {currentIndex + 1 === length ? (
+              <button onClick={onEnd}>Next Project</button>
+            ) : (
+              <button onClick={_toggleDock}>
+                {currentIndex + 1}/{length} <span className='arrow'>↑</span>
+              </button>
+            )}
           </div>
         )}
       </div>

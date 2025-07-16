@@ -11,6 +11,7 @@ import clsx from "clsx";
 import { subscribe, unsubscribe } from "pubsub-js";
 import LinkTransition from "./ui/LinkTransition";
 import { useRouter } from "next/navigation";
+import useDeviceDetect from "../hooks/useDeviceDetect";
 type Props = {
   input: Project;
 };
@@ -18,6 +19,7 @@ type Props = {
 const ContentProject = ({ input }: Props) => {
   const { artist, media, title, subTitle, nextProject } = input;
   const { isBottom } = useScroll();
+  const { isMobile } = useDeviceDetect();
   const [currentProject, setCurrentProject] = useState<LocaleString | string>(
     subTitle ? subTitle : title || ""
   );
@@ -75,7 +77,7 @@ const ContentProject = ({ input }: Props) => {
         </div>
       </div>
 
-      {nextProject && (
+      {nextProject && !isMobile && (
         <CursorCustom>
           <LinkTransition
             href={_linkResolver(nextProject)}

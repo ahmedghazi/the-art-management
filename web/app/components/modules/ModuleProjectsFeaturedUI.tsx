@@ -41,7 +41,8 @@ const ModuleProjectsFeaturedUI = ({ input }: Props) => {
   const _scrollToSection = (_id: string) => {
     const article = document.querySelector(`#article-${_id}`);
     if (article) {
-      article.scrollIntoView({ behavior: "smooth", block: "center" });
+      // article.scrollIntoView({ behavior: "smooth", block: "center" });
+      article.scrollIntoView({ block: "center" });
     }
   };
 

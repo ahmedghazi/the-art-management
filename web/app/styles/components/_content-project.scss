@@ -53,7 +53,7 @@
       bottom: 0;
       right: 0;
       padding: var(--spacing-sm);
-      z-index: 50;
+      z-index: 51;
     }
     .dock {
       position: absolute;
@@ -93,6 +93,7 @@
     }
   }
   .footer {
+    z-index: 50;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -104,6 +105,9 @@
     transform: translateY(0.07em);
     .grid {
       width: 100%;
+    }
+    a {
+      cursor: pointer;
     }
     .artist {
       transform: translateY(0.2rem);

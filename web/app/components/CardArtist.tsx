@@ -26,7 +26,7 @@ const CardArtist = ({ input }: Props) => {
       const _el = el as HTMLElement;
       _el.style.opacity = isHovered ? "0.4" : "1";
     });
-  }, [isHovered, input.slug]);
+  }, [isHovered, artist?.slug]);
 
   return (
     <div
@@ -48,17 +48,6 @@ const CardArtist = ({ input }: Props) => {
                 placeholder={media[0].placeholder?.asset?.url}
               />
             )}
-            {/* {!videoCover && imageCover && imageCover.asset && (
-            <Figure asset={imageCover.asset} />
-          )}
-          {videoCover && (
-            <MuxVideoPlayer
-              playbackId={videoCover.videoDesktop.asset.playbackId}
-              title={videoCover.title}
-              withAudio={false}
-              placeholder={videoCover.placeholder?.asset?.url}
-            />
-          )} */}
           </div>
         )}
         <h3 className='sans text-sm-alt--mobile md:text-md'>{artist?.name}</h3>

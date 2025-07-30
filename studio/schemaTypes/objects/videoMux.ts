@@ -21,7 +21,7 @@ export default {
     defineField({
       name: 'placeholder',
       type: 'image',
-      description: 'Image placeholder',
+      description: "Image placeholder, s'affiche le temps que la video charge",
       validation: (Rule) => Rule.required().warning('Image placeholder est obligatoire'),
     }),
     defineField({

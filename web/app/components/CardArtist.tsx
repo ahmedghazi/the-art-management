@@ -1,24 +1,26 @@
 import { Link } from "next-view-transitions";
 import React, { useEffect } from "react";
 import { _linkResolver } from "../sanity-api/utils";
-import { Artist } from "../types/schema";
+import { Artist, ArtistsCard } from "../types/schema";
 import Figure from "./ui/Figure";
 import LinkTransition from "./ui/LinkTransition";
 import MuxVideoPlayer from "./ui/MuxVideoPlayer";
 
 type Props = {
-  input: Artist;
+  input: ArtistsCard;
 };
 
 const CardArtist = ({ input }: Props) => {
   // console.log(input);
   const [isHovered, setIsHovered] = React.useState(false);
-  const { name, imageCover, videoCover } = input;
+  const artist = input.artist;
+  const media = input.media;
+  // const { artist, media } = input;
 
   useEffect(() => {
     const siblings = Array.from(document.querySelectorAll(".card--artist"));
     const notThis = siblings.filter(
-      (sibling) => sibling.id !== input.slug?.current
+      (sibling) => sibling.id !== artist?.slug?.current
     );
     notThis.forEach((el) => {
       const _el = el as HTMLElement;
@@ -28,13 +30,25 @@ const CardArtist = ({ input }: Props) => {
 
   return (
     <div
-      id={input.slug?.current}
+      id={artist?.slug?.current}
       className='card--artist transition-opacity'
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}>
-      <LinkTransition href={_linkResolver(input)}>
-        <div className='image'>
-          {!videoCover && imageCover && imageCover.asset && (
+      <LinkTransition href={_linkResolver(artist)}>
+        {media && (
+          <div className='image'>
+            {media[0]._type === "figure" && media[0].image && (
+              <Figure asset={media[0].image.asset} />
+            )}
+            {media[0]._type === "videoMux" && media[0].videoDesktop && (
+              <MuxVideoPlayer
+                playbackId={media[0].videoDesktop.asset.playbackId}
+                title={media[0].videoDesktop.title}
+                withAudio={false}
+                placeholder={media[0].placeholder?.asset?.url}
+              />
+            )}
+            {/* {!videoCover && imageCover && imageCover.asset && (
             <Figure asset={imageCover.asset} />
           )}
           {videoCover && (
@@ -44,9 +58,10 @@ const CardArtist = ({ input }: Props) => {
               withAudio={false}
               placeholder={videoCover.placeholder?.asset?.url}
             />
-          )}
-        </div>
-        <h3 className='sans text-sm-alt--mobile md:text-md'>{name}</h3>
+          )} */}
+          </div>
+        )}
+        <h3 className='sans text-sm-alt--mobile md:text-md'>{artist?.name}</h3>
       </LinkTransition>
     </div>
   );

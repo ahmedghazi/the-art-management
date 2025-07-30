@@ -123,15 +123,17 @@ const artistsGridUI = `
 			tag->{
 				title
 			},
-			items[]->{
-				_type,
-				slug,
-				name,
-				imageCover{
-					asset->
+			items[]{
+				artist->{
+					_type,
+					name,
+					slug,
+					imageCover{
+						asset->
+					}
 				},
-				videoCover{
-					${videoMux}
+				media[]{
+					${media}
 				}
 			}
 		}

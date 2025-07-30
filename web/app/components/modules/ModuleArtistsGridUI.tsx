@@ -17,7 +17,7 @@ interface Props {
 const ModuleArtistsGridUI = ({ input }: Props) => {
   const { items = [] } = input;
   const ref = useRef<HTMLElement>(null);
-
+  console.log(items);
   useEffect(() => {
     const scroller = _getScrollParent(ref.current);
     if (scroller) {
@@ -52,6 +52,7 @@ const ModuleArtistsGridUI = ({ input }: Props) => {
                 )}>
                 {item.items?.map((item, _index) => (
                   <li key={_index}>
+                    {/* <pre>{JSON.stringify(item, null, 2)}</pre> */}
                     <CardArtist input={item} />
                   </li>
                 ))}

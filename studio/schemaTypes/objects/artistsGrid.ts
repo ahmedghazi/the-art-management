@@ -19,8 +19,9 @@ export default defineField({
       type: 'array',
       of: [
         {
-          type: 'reference',
-          to: [{type: 'artist'}],
+          type: 'artistsCard',
+          // type: 'reference',
+          // to: [{type: 'artist'}],
         },
       ],
     }),

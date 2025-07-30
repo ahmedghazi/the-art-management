@@ -31,6 +31,7 @@ import projectsUI from './objects/modules/projectsUI'
 import videoUI from './objects/modules/videoUI'
 import projectsFeaturedUI from './objects/modules/projectsFeaturedUI'
 import productionsUI from './objects/modules/productionsUI'
+import artistsCard from './objects/artistsCard'
 
 export const schemaTypes = [
   home,
@@ -59,6 +60,7 @@ export const schemaTypes = [
   videoMux,
   projectFeatured,
   artistsGrid,
+  artistsCard,
   edition,
 
   artistsGridUI,

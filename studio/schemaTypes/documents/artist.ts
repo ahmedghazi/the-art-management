@@ -66,6 +66,13 @@ export default defineType({
       description: 'Visible on liste pages, project cards (largeur 1400px)',
       group: 'editorial',
     }),
+    defineField({
+      name: 'videoCoverAlt',
+      type: 'videoMux',
+      title: 'Video cover alt',
+      description: 'Visible on liste pages, project cards (largeur 1400px)',
+      group: 'editorial',
+    }),
 
     defineField({
       name: 'text',

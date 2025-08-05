@@ -24,52 +24,52 @@ const ContentArtist = ({ input }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
   gsap.registerPlugin(ScrollTrigger);
 
-  useGSAP(
-    () => {
-      return;
-      // Check if we can find the template element
-      const scroller = document.querySelector("main .template");
-      if (!scroller) {
-        console.error("scroller element not found!");
-        return;
-      }
-      console.log("scroller element found:", scroller);
+  // useGSAP(
+  //   () => {
+  //     return;
+  //     // Check if we can find the template element
+  //     const scroller = document.querySelector("main .template");
+  //     if (!scroller) {
+  //       console.error("scroller element not found!");
+  //       return;
+  //     }
+  //     console.log("scroller element found:", scroller);
 
-      // Get all elements with the animation class
-      const elements = document.querySelectorAll(
-        "h2, .card, .text, .project-media, .edition figure"
-      );
-      // Create a timeline for all elements
-      const masterTimeline = gsap.timeline();
+  //     // Get all elements with the animation class
+  //     const elements = document.querySelectorAll(
+  //       "h2, .card, .text, .project-media, .edition figure"
+  //     );
+  //     // Create a timeline for all elements
+  //     const masterTimeline = gsap.timeline();
 
-      elements.forEach(function (element, index) {
-        console.log("Animating element:", element);
+  //     elements.forEach(function (element, index) {
+  //       console.log("Animating element:", element);
 
-        // Create individual animation for each element
-        masterTimeline.from(
-          element,
-          {
-            y: 10,
-            opacity: 0,
-            // ease: "power2.out",
-            duration: 0.3,
-            stagger: 0.05,
-            scrollTrigger: {
-              trigger: element,
-              scroller: scroller,
-              start: "top 80%",
-              end: "top 20%",
-            },
-          }
-          // ">-=0.001"
-        ); // Reduced stagger timing for super fast animation
-      });
+  //       // Create individual animation for each element
+  //       masterTimeline.from(
+  //         element,
+  //         {
+  //           y: 10,
+  //           opacity: 0,
+  //           // ease: "power2.out",
+  //           duration: 0.3,
+  //           stagger: 0.05,
+  //           scrollTrigger: {
+  //             trigger: element,
+  //             scroller: scroller,
+  //             start: "top 80%",
+  //             end: "top 20%",
+  //           },
+  //         }
+  //         // ">-=0.001"
+  //       ); // Reduced stagger timing for super fast animation
+  //     });
 
-      // Return the master timeline
-      return masterTimeline;
-    },
-    { scope: ref }
-  );
+  //     // Return the master timeline
+  //     return masterTimeline;
+  //   },
+  //   { scope: ref }
+  // );
 
   return (
     <div className='content--artist px-sm' ref={ref}>

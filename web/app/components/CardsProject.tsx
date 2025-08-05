@@ -6,6 +6,7 @@ import Figure from "./ui/Figure";
 import AOS from "./ui/AOS";
 import clsx from "clsx";
 import LinkTransition from "./ui/LinkTransition";
+import MuxVideoPlayer from "./ui/MuxVideoPlayer";
 
 type Props = {
   input: Project;
@@ -34,6 +35,18 @@ const CardsProject = ({ input }: Props) => {
                       width={600}
                       alt={_localizeField(input.title) || ""}
                     />
+                  </div>
+                )}
+                {item._type === "videoMux" && (
+                  <div className='project-media w-col-1-8'>
+                    {item.videoDesktop && item.videoDesktop.asset && (
+                      <MuxVideoPlayer
+                        playbackId={item.videoDesktop.asset.playbackId}
+                        title={item.videoDesktop.title}
+                        withAudio={false}
+                        placeholder={item.placeholder?.asset?.url}
+                      />
+                    )}
                   </div>
                 )}
               </Fragment>

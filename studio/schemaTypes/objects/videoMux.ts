@@ -53,7 +53,7 @@ export default {
     },
     // component: VideoPreview,
     prepare(selection: any) {
-      console.log(selection)
+      // console.log(selection)
       const {media, title} = selection
       return {
         title: title,

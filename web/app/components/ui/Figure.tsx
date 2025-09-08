@@ -28,8 +28,8 @@ const Figure = ({ asset, width = 1000, alt = website.title }: Props) => {
           height: "auto",
           aspectRatio: `${asset?.metadata?.dimensions.width} / ${asset?.metadata?.dimensions.height}`,
         }}
-        // blurDataURL={asset?.metadata?.lqip}
-        // placeholder='blur'
+        blurDataURL={asset?.metadata?.lqip}
+        placeholder='blur'
       />
     </figure>
   );

@@ -28,10 +28,16 @@ const ContentProject = ({ input }: Props) => {
   const router = useRouter();
 
   useEffect(() => {
+    document.body.classList.add("no-scroll");
+    setTimeout(() => {
+      document.body.classList.remove("no-scroll");
+    }, 400);
+
     const subscription = subscribe("CURRENT_SLIDER_PROJECT", (e, data) => {
       setCurrentProject(data);
     });
     return () => {
+      document.body.classList.remove("no-scroll");
       unsubscribe(subscription);
     };
   }, []);

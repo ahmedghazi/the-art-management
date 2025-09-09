@@ -125,7 +125,7 @@ const ProjectSlider = ({ input, onEnd }: Props) => {
             {item._type === "figure" && (
               <FigureComponent asset={item.image?.asset} />
             )}
-            {item._type === "videoMux" && (
+            {item._type === "videoMux" && item.videoDesktop && (
               <MuxVideoPlayer
                 playbackId={item.videoDesktop.asset.playbackId}
                 title={item.videoDesktop.title}

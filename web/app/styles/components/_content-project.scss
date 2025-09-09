@@ -144,6 +144,9 @@
         align-items: end;
         gap: var(--spacing-sm);
         pointer-events: none;
+        button {
+          pointer-events: all;
+        }
         // display: none;
         li {
         }

@@ -77,11 +77,13 @@ const ProjectSlider = ({ input, onEnd }: Props) => {
   }, [isBottom, isMobile]);
 
   const _navigateToNextProject = () => {
+    if (input.length <= 1) return;
     onEnd();
   };
 
   const _scrollToNext = () => {
     // return;
+    // if (isMobile) return;
     if (input.length <= 1) return;
     const scroller = _getScrollParent(container.current);
     if (!scroller) return;

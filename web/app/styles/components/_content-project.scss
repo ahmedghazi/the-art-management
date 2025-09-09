@@ -171,6 +171,17 @@
     }
     .footer {
       z-index: 10;
+      .grid {
+        display: block;
+        position: relative;
+        .col-center.col-span-2 {
+          // background-color: red;
+          position: absolute;
+          left: 50%;
+          bottom: 0%;
+          transform: translate(-50%, 0%);
+        }
+      }
       .col-center {
         transform: none;
       }

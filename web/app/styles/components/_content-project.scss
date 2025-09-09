@@ -54,6 +54,10 @@
       right: 0;
       padding: var(--spacing-sm);
       z-index: 51;
+      .dock {
+        max-height: calc(var(--vh) * 100);
+        overflow-y: auto;
+      }
     }
     .dock {
       position: absolute;
@@ -154,6 +158,7 @@
         transition: transform 0.2s var(--cubic), opacity 0.2s var(--cubic);
         pointer-events: none;
         position: initial;
+
         &.is-active {
           transform: translateY(0);
           opacity: 1;

@@ -137,7 +137,7 @@ const ProjectSlider = ({ input, onEnd }: Props) => {
         ))}
       </div>
       <div className='pager-dock sans'>
-        <ul className='dock' ref={dock}>
+        <ul className='dock hide-sb' ref={dock}>
           {input.length > 1 &&
             input?.map((item, i) => (
               <li

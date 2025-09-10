@@ -43,7 +43,7 @@ const ContentProject = ({ input }: Props) => {
   }, []);
 
   const _navigateToNextProject = () => {
-    if (isMobile) return;
+    // if (isMobile) return;
     const nextProjectUrl = _linkResolver(nextProject);
     router.push(nextProjectUrl);
   };

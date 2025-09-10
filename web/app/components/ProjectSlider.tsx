@@ -60,24 +60,24 @@ const ProjectSlider = ({ input, onEnd }: Props) => {
     }
   }, [currentIndex, input]);
 
-  useEffect(() => {
-    console.log({ isBottom, isMobile });
-    if (isBottom && isMobile) {
-      container.current?.addEventListener("touchstart", _navigateToNextProject);
-    }
+  // useEffect(() => {
+  //   console.log({ isBottom, isMobile });
+  //   if (isBottom && isMobile) {
+  //     container.current?.addEventListener("touchstart", _navigateToNextProject);
+  //   }
 
-    return () => {
-      if (isBottom && isMobile) {
-        container.current?.removeEventListener(
-          "touchstart",
-          _navigateToNextProject
-        );
-      }
-    };
-  }, [isBottom, isMobile]);
+  //   return () => {
+  //     if (isBottom && isMobile) {
+  //       container.current?.removeEventListener(
+  //         "touchstart",
+  //         _navigateToNextProject
+  //       );
+  //     }
+  //   };
+  // }, [isBottom, isMobile]);
 
   const _navigateToNextProject = () => {
-    if (input.length <= 1) return;
+    // if (input.length <= 1) return;
     onEnd();
   };
 

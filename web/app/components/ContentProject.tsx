@@ -48,7 +48,6 @@ const ContentProject = ({ input }: Props) => {
     router.push(nextProjectUrl);
   };
 
-  // console.log({ isBottom });
   return (
     <div
       className={clsx("content--project", {

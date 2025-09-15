@@ -24,7 +24,7 @@ const Splash = ({ settings }: Props) => {
     console.log("here");
     setTimeout(() => {
       setCollapse(true);
-    }, 3000);
+    }, 2000);
   }, [canDisplay]);
 
   return (

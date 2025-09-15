@@ -74,7 +74,10 @@ export const media = `
 		}
 	},
 	_type == 'videoMux' => {
-		${videoMux}
+		${videoMux},
+		project->{
+		  title,
+		}
 	}
 `;
 

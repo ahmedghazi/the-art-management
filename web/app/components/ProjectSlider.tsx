@@ -54,7 +54,13 @@ const ProjectSlider = ({ input, onEnd }: Props) => {
   }, []);
 
   useEffect(() => {
-    const currentItem = input[currentIndex];
+    // const currentItem = input[0];
+    // console.log(input);
+    // publish("CURRENT_SLIDER_PROJECT", currentItem.project?.title);
+  }, []);
+
+  useEffect(() => {
+    const currentItem = input[currentIndex || 0];
     if (currentItem && currentItem.project) {
       publish("CURRENT_SLIDER_PROJECT", currentItem.project.title);
     }

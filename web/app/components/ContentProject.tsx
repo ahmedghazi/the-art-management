@@ -33,7 +33,9 @@ const ContentProject = ({ input }: Props) => {
       document.body.classList.remove("no-scroll");
     }, 400);
 
+    console.log(title);
     const subscription = subscribe("CURRENT_SLIDER_PROJECT", (e, data) => {
+      console.log(e, data);
       setCurrentProject(data);
     });
     return () => {

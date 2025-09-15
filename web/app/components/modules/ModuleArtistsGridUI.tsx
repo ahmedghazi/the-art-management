@@ -17,7 +17,6 @@ interface Props {
 const ModuleArtistsGridUI = ({ input }: Props) => {
   const { items = [] } = input;
   const ref = useRef<HTMLElement>(null);
-  console.log(items);
   useEffect(() => {
     const scroller = _getScrollParent(ref.current);
     if (scroller) {

@@ -28,7 +28,7 @@ const ModuleProductionsUI = ({ input }: Props) => {
           />
         </div>
         <div className='featured'>
-          {input.featured && (
+          {input.featured && input.featured.title && (
             <ProductionItemComponent
               input={input.featured}
               className='featured-item'

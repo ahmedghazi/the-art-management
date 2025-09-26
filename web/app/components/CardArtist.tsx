@@ -15,7 +15,6 @@ const CardArtist = ({ input }: Props) => {
   const [isHovered, setIsHovered] = React.useState(false);
   const artist = input.artist;
   const media = input.media;
-  // const { artist, media } = input;
 
   useEffect(() => {
     const siblings = Array.from(document.querySelectorAll(".card--artist"));

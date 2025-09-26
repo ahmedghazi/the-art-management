@@ -17,7 +17,7 @@ export const linkResolverPreview: PresentationPluginOptions['resolve'] = {
         // console.log(doc);
         locations: [
           {
-            title: doc?.title || 'Untitled',
+            title: doc?.title.en || 'Untitled',
             href: doc?.homePage ? '/' : `/${doc?.slug}`,
           },
           // {title: 'Home', href: `/`},
@@ -34,7 +34,7 @@ export const linkResolverPreview: PresentationPluginOptions['resolve'] = {
       resolve: (doc) => ({
         locations: [
           {
-            title: doc?.title || 'Untitled',
+            title: doc?.title.en || 'Untitled',
             href: `/artist/${doc?.slug}`,
           },
         ],

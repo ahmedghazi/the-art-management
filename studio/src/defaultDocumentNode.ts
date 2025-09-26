@@ -2,7 +2,7 @@ import {type DefaultDocumentNodeResolver} from 'sanity/structure'
 import {Iframe} from 'sanity-plugin-iframe-pane'
 import {type SanityDocument} from 'sanity'
 
-const remoteURL = 'https://xxx.vercel.app/'
+const remoteURL = 'https://www.theartmanagement.fr'
 const localURL = 'http://localhost:3000/'
 const previewURL = window.location.hostname === 'localhost' ? localURL : remoteURL
 

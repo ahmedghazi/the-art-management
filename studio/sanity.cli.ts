@@ -12,4 +12,7 @@ export default defineCliConfig({
    * Learn more at https://www.sanity.io/docs/cli#auto-updates
    */
   autoUpdates: true,
+  deployment: {
+    appId: 'snu94uswg1isyqp3fmlq0wb1',
+  },
 })

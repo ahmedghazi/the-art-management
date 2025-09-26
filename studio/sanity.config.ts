@@ -11,7 +11,7 @@ import {linkResolverPreview} from './src/linkResolverPreview'
 
 const devOnlyPlugins = [getStartedPlugin()]
 
-const remoteURL = 'https://the-art-management-preprod.vercel.app'
+const remoteURL = 'https://www.theartmanagement.fr'
 const localURL = 'http://localhost:3000'
 const previewURL = window.location.hostname === 'localhost' ? localURL : remoteURL
 

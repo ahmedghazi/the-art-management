@@ -51,8 +51,8 @@ const ModuleArtistsGridUI = ({ input }: Props) => {
                 )}>
                 {item.items?.map((item, _index) => (
                   <li key={_index}>
-                    {/* <pre>{JSON.stringify(item, null, 2)}</pre> */}
                     <CardArtist input={item} />
+                    {/* <pre>{JSON.stringify(item, null, 2)}</pre> */}
                   </li>
                 ))}
               </ul>

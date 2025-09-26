@@ -50,6 +50,9 @@ const CardArtist = ({ input }: Props) => {
             )}
           </div>
         )}
+        {!media && input.artist?.imageCover && (
+          <Figure asset={input.artist?.imageCover.asset} />
+        )}
         <h3 className='sans text-sm-alt--mobile md:text-md'>{artist?.name}</h3>
       </LinkTransition>
     </div>

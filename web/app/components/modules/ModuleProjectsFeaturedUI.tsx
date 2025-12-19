@@ -69,7 +69,7 @@ const ModuleProjectsFeaturedUI = ({ input }: Props) => {
                 key={index}
                 className='nav--artist'
                 id={`nav-${item._key}`}
-                onMouseEnter={() => _scrollToSection(item._key)}
+                // onMouseEnter={() => _scrollToSection(item._key)}
                 // onClick={() => _scrollToSection(item._key)}
               >
                 <LinkTransition href={_linkResolver(item.artist)}>

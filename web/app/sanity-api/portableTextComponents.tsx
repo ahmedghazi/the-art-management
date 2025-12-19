@@ -29,13 +29,6 @@ const portableTextComponents: PortableTextComponents = {
     // image: ({ value }) => {
     //   return <Figure asset={value.asset} />;
     // },
-    // icon: ({ value }) => {
-    //   return (
-    //     <div className='icon'>
-    //       <Figure asset={value.image.asset} />
-    //     </div>
-    //   );
-    // },
   },
 
   marks: {
@@ -62,20 +55,6 @@ const portableTextComponents: PortableTextComponents = {
     align_right: ({ children }) => (
       <span className='text-right block'>{children}</span>
     ),
-    // pill: ({ children, value }) => {
-    //   let background = value.background;
-    //   if (background && background !== "" && background.indexOf("#") === -1)
-    //     background = `#${background}`;
-    //   return (
-    //     <span
-    //       className='pill pill--md'
-    //       style={{
-    //         background: background,
-    //       }}>
-    //       {children}
-    //     </span>
-    //   );
-    // },
   },
 };
 

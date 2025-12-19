@@ -24,27 +24,6 @@ const portableTextComponents: PortableTextComponents = {
   block: {
     h1: ({ children }) => <h1 className='sans'>{children}</h1>,
     h2: ({ children }) => <h2>{children}</h2>,
-    // "h2 text-lg": ({ children }) => (
-    //   <p className='text-md md:text-lg'>{children}</p>
-    // ),
-    // "h2 text-2lg": ({ children }) => (
-    //   <p className='text-md md:text-2lg'>{children}</p>
-    // ),
-    // "h3 text-2lg": ({ children }) => (
-    //   <p className='text-md md:text-2lg'>{children}</p>
-    // ),
-    // "h3 text-lg": ({ children }) => (
-    //   <p className='text-md md:text-lg'>{children}</p>
-    // ),
-    // "text-lg": ({ children }) => (
-    //   <p className='text-md md:text-lg '>{children}</p>
-    // ),
-    // "text-2lg": ({ children }) => (
-    //   <p className='text-md md:text-2lg '>{children}</p>
-    // ),
-    // "text-xl": ({ children }) => (
-    //   <p className='text-md md:text-xl- headline'>{children}</p>
-    // ),
   },
   types: {
     // image: ({ value }) => {

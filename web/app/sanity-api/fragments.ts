@@ -106,6 +106,8 @@ const projectsFeaturedUI = `
 				title
 			},
 			artist->{
+				_type,
+				slug,
 				name,
 				tag->{
 					title

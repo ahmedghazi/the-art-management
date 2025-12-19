@@ -56,15 +56,6 @@ const CardProjectFeatured = ({ input }: Props) => {
                 />
               )}
             </div>
-            // <div key={item.image?.asset._id}>
-            //   {item.image && (
-            //     <Figure
-            //       asset={item.image.asset}
-            //       width={2000}
-            //       alt={_localizeField(input.title) || ""}
-            //     />
-            //   )}
-            // </div>
           ))}
         </div>
       </LinkTransition>

@@ -2,10 +2,15 @@ import React, { useEffect } from "react";
 import { ProjectsFeaturedUI } from "@/app/types/schema";
 import CardProjectFeatured from "../CardProjectFeatured";
 import { subscribe, unsubscribe } from "pubsub-js";
-import { _localizeField, _slugify } from "@/app/sanity-api/utils";
+import {
+  _linkResolver,
+  _localizeField,
+  _slugify,
+} from "@/app/sanity-api/utils";
 import "./ModuleProjectsFeaturedUI.scss";
 import BackToTop from "../ui/BackToTop";
 import { useScroll } from "@/app/hooks/useScroll";
+import LinkTransition from "../ui/LinkTransition";
 
 interface Props {
   input: ProjectsFeaturedUI;
@@ -42,7 +47,9 @@ const ModuleProjectsFeaturedUI = ({ input }: Props) => {
     const article = document.querySelector(`#article-${_id}`);
     if (article) {
       // article.scrollIntoView({ behavior: "smooth", block: "center" });
-      article.scrollIntoView({ block: "center" });
+      setTimeout(() => {
+        article.scrollIntoView({ block: "center" });
+      }, 1000);
     }
   };
 
@@ -62,14 +69,18 @@ const ModuleProjectsFeaturedUI = ({ input }: Props) => {
                 key={index}
                 className='nav--artist'
                 id={`nav-${item._key}`}
-                onClick={() => _scrollToSection(item._key)}>
-                <div className='project'>
-                  {_localizeField(item.project?.title)}
-                </div>
-                <h2 className='artist sans'>{item.artist?.name}</h2>
-                <div className='tag'>
-                  {_localizeField(item.artist?.tag?.title)}
-                </div>
+                onMouseEnter={() => _scrollToSection(item._key)}
+                // onClick={() => _scrollToSection(item._key)}
+              >
+                <LinkTransition href={_linkResolver(item.artist)}>
+                  <div className='project'>
+                    {_localizeField(item.project?.title)}
+                  </div>
+                  <h2 className='artist sans'>{item.artist?.name}</h2>
+                  <div className='tag'>
+                    {_localizeField(item.artist?.tag?.title)}
+                  </div>
+                </LinkTransition>
               </li>
             ))}
         </ul>

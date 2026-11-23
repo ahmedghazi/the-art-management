@@ -1,5 +1,5 @@
 import website from "@/app/config/website";
-import { urlFor } from "@/app/sanity-api/sanity-utils";
+import { sanityLoader, urlFor } from "@/app/sanity-api/sanity-utils";
 import Image from "next/image";
 import React from "react";
 import { SanityImageAsset } from "sanity-codegen";
@@ -18,6 +18,7 @@ const Figure = ({ asset, width = 1000, alt = website.title }: Props) => {
   return (
     <figure>
       <Image
+        loader={sanityLoader}
         src={urlFor(asset)}
         width={asset?.metadata?.dimensions.width || width}
         height={asset?.metadata?.dimensions.height || width}
